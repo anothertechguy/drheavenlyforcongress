@@ -57,9 +57,9 @@ export const SocialLinks = ({
           title={social.name}
         >
           {/* American Flag Gradient Hover Background */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#0A3161] via-[#ffffff] to-[#B31942] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#0A3161] via-[#0A3161]/80 to-[#B31942] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0" />
           
-          <div className="w-1/2 h-1/2 flex items-center justify-center relative z-10 transition-colors duration-300">
+          <div className="w-1/2 h-1/2 flex items-center justify-center relative z-10 transition-colors duration-300 text-inherit group-hover:text-white group-hover:drop-shadow-md">
             {social.icon}
           </div>
         </motion.a>

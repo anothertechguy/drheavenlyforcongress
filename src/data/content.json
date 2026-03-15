@@ -46,6 +46,7 @@
     },
     "election": {
       "heading": "Primary Election: May 19, 2026",
+      "early_voting": "Early voting starts on April 27 and runs through May 15.",
       "vote_button": "HOW TO VOTE",
       "vote_url": "https://iwillvote.com/?state=GA",
       "sub_heading": "GEORGIA DISTRICT 13 IMPORTANT DATES",

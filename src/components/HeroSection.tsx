@@ -99,6 +99,13 @@ const HeroSection = () => {
             variants={textVariants}
           >
             <a
+              href="/#voter-info"
+              className="btn-navy w-full sm:w-auto text-center"
+            >
+              VOTE NOW
+            </a>
+
+            <a
               href={content.urls.donate}
               target="_blank"
               rel="noopener noreferrer"

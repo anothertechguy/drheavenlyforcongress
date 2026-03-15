@@ -1,6 +1,7 @@
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import content from "@/data/content.json";
 import SocialLinks from "@/components/SocialLinks";
 
@@ -8,6 +9,8 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -44,10 +47,10 @@ const Navigation = () => {
 
         <nav className="hidden lg:flex items-center gap-10">
           {[
-            { name: 'Home', href: '/' }, // using about/platform links from content
-            { name: 'Platform', href: content.urls.platform },
-            { name: 'About', href: content.urls.about },
-          ].map((item) => (
+            { name: 'Home', href: '/', show: !isHomePage },
+            { name: 'Platform', href: content.urls.platform, show: true },
+            { name: 'About', href: content.urls.about, show: true },
+          ].filter(item => item.show).map((item) => (
             <a 
               key={item.name} 
               href={item.href}
@@ -63,14 +66,22 @@ const Navigation = () => {
             className="hidden xl:flex" 
             iconClassName="w-8 h-8 bg-transparent border-white/20 hover:bg-white/10 text-white" 
           />
-          <a
-            href={content.urls.donate}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-crimson hidden sm:block"
-          >
-            {content.home.support.donate_button}
-          </a>
+          <div className="hidden sm:flex items-center gap-3">
+            <a
+              href="/#voter-info"
+              className="btn-outline border-white/30 text-white hover:bg-white hover:text-navy px-5 py-2.5 text-xs lg:text-sm"
+            >
+              VOTE NOW
+            </a>
+            <a
+              href={content.urls.donate}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-crimson px-5 py-2.5 text-xs lg:text-sm"
+            >
+              {content.home.support.donate_button}
+            </a>
+          </div>
           
           {/* Mobile Menu Toggle */}
           <button 
@@ -111,11 +122,11 @@ const Navigation = () => {
           {/* Mobile Links */}
           <nav className="flex flex-col gap-6 mb-16 items-center w-full">
             {[
-              { name: 'Home', href: '/' },
-              { name: 'Platform', href: content.urls.platform },
-              { name: 'About', href: content.urls.about },
-              { name: 'Store', href: content.urls.shop },
-            ].map((item, i) => (
+              { name: 'Home', href: '/', show: !isHomePage },
+              { name: 'Platform', href: content.urls.platform, show: true },
+              { name: 'About', href: content.urls.about, show: true },
+              { name: 'Store', href: content.urls.shop, show: true },
+            ].filter(item => item.show).map((item, i) => (
               <motion.a 
                 key={item.name} 
                 href={item.href}
@@ -133,18 +144,18 @@ const Navigation = () => {
           <div className="mt-auto flex flex-col gap-8 items-center">
             <div className="flex flex-col w-full gap-4 sm:flex-row justify-center max-w-sm mx-auto">
               <a
+                href="/#voter-info"
+                className="btn-outline border-white text-white hover:bg-white hover:text-navy w-full text-center py-4"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                VOTE NOW
+              </a>
+              <a
                 href={content.urls.donate}
                 className="btn-crimson w-full text-center py-4"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Donate
-              </a>
-              <a
-                href={content.urls.volunteer}
-                className="btn-outline border-white/20 text-white w-full text-center py-4"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Volunteer
               </a>
             </div>
             <SocialLinks className="justify-center" />

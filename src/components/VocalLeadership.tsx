@@ -73,11 +73,10 @@ const VocalLeadership = () => {
                    {text}
                  </p>
                ))}
-               <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center gap-8">
-                 <a href={content.urls.about} className="btn-navy">
+               <div className="pt-8 flex flex-col gap-8 items-start">
+                 <a href={content.urls.about} className="btn-navy w-full sm:w-auto text-center">
                    {content.home.vocal_leadership.button}
                  </a>
-                 <div className="hidden sm:block w-[1px] h-12 bg-navy/10" />
                  <SocialLinks 
                    iconClassName="w-12 h-12 bg-white border-navy/10 text-navy hover:border-crimson hover:bg-crimson hover:text-white shadow-sm"
                  />

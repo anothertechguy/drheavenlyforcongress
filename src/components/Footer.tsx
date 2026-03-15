@@ -16,6 +16,7 @@ const Footer = () => {
             </p>
             <div className="flex flex-col gap-8">
               <div className="flex flex-wrap gap-4 items-center">
+                <a href="/#voter-info" className="btn-navy py-3 px-6 text-xs bg-white text-navy hover:bg-gold hover:text-navy border-none">VOTE NOW</a>
                 <a href={content.urls.donate} className="btn-crimson py-3 px-6 text-xs">Donate</a>
                 <a href={content.urls.volunteer} className="btn-outline border-white/20 text-white hover:border-gold hover:text-gold py-3 px-6 text-xs">Volunteer</a>
               </div>
@@ -25,7 +26,8 @@ const Footer = () => {
 
           <div className="lg:text-right">
             <h4 className="font-sans text-sm font-bold uppercase tracking-widest text-white/50 mb-6">Campaign</h4>
-            <p className="font-sans text-white/80 mb-6">{content.home.election.heading}</p>
+            <p className="font-sans text-white/80 mb-2">{content.home.election.heading}</p>
+            <p className="font-sans text-white/50 text-xs mb-6 max-w-xs ml-auto leading-relaxed">{content.home.election.early_voting}</p>
             <div className="p-4 bg-white/5 border border-white/10 rounded-2xl inline-block lg:w-[300px]">
               <p className="font-sans text-[10px] text-white/60 text-center uppercase tracking-widest leading-relaxed">
                 Paid for by<br/>Dr. Heavenly for Congress
