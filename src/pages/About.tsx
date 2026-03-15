@@ -46,7 +46,7 @@ const About = () => {
           <img
             src={heroImage}
             alt="Dr. Heavenly and Family"
-            className="object-cover w-full h-full object-center opacity-50 mix-blend-luminosity brightness-75 contrast-125"
+            className="object-cover w-full h-full object-[75%_center] sm:object-center opacity-50 mix-blend-luminosity brightness-75 contrast-125"
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-pearl via-navy/30 to-navy/10 z-10" />
@@ -99,7 +99,7 @@ const About = () => {
                     hidden: { opacity: 0 },
                     visible: {
                       opacity: 1,
-                      transition: { staggerChildren: 0.05, delayChildren: 0.5 }
+                      transition: { staggerChildren: 0.02, delayChildren: 0.2 }
                     }
                   }}
                   initial="hidden"
@@ -107,30 +107,47 @@ const About = () => {
                   viewport={{ once: true }}
                   className="heading-display text-4xl md:text-5xl text-navy mb-5 leading-tight flex flex-wrap"
                 >
-                  {Array.from("A Letter To District 13").map((char, index) => (
-                    <motion.span
-                      key={index}
-                      variants={{
-                        hidden: { opacity: 0, scale: 0.8 },
-                        visible: { opacity: 1, scale: 1 }
-                      }}
-                      className={char === " " ? "w-3" : ""}
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
+                  {/* Keep "A Letter To" and "District 13" grouped to prevent awkward word breaks on narrow screens */}
+                  <span className="inline-flex mr-3">
+                    {Array.from("A Letter To ").map((char, index) => (
+                      <motion.span
+                        key={`part1-${index}`}
+                        variants={{
+                          hidden: { opacity: 0, scale: 0.8 },
+                          visible: { opacity: 1, scale: 1 }
+                        }}
+                        className={char === " " ? "w-3" : ""}
+                      >
+                        {char}
+                      </motion.span>
+                    ))}
+                  </span>
+                  <span className="inline-flex">
+                    {Array.from("District 13").map((char, index) => (
+                      <motion.span
+                        key={`part2-${index}`}
+                        variants={{
+                          hidden: { opacity: 0, scale: 0.8 },
+                          visible: { opacity: 1, scale: 1 }
+                        }}
+                        className={char === " " ? "w-3" : ""}
+                      >
+                        {char}
+                      </motion.span>
+                    ))}
+                  </span>
                 </motion.h2>
                 <motion.div 
                   initial={{ width: 0 }}
                   whileInView={{ width: 80 }}
-                  transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
+                  transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}
                   className="h-[2px] bg-gold mb-5" 
                 />
                 <motion.p 
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 2 }}
+                  transition={{ duration: 0.8, delay: 1 }}
                   viewport={{ once: true }}
                   className="font-sans text-sm tracking-widest uppercase text-navy/40 font-bold"
                 >
