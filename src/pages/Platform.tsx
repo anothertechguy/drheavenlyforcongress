@@ -180,7 +180,7 @@ const Platform = () => {
             </div>
 
             {/* Right Scrolling Content Area */}
-            <div className="lg:col-span-7 space-y-12 md:space-y-24 mt-8 md:mt-0">
+            <div className="lg:col-span-7 mt-8 md:mt-0 relative pb-24 md:pb-0">
               {platformItems.map((issue, index) => (
                 <motion.div 
                   key={index}
@@ -188,7 +188,9 @@ const Platform = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.8, ease: "easeOut", delay: index === 0 ? 0.2 : 0 }}
-                  className="group relative"
+                  className="group relative md:static sticky mb-4 md:mb-24 shadow-2xl rounded-[2.2rem]"
+                  // Calculate dynamic top offset for mobile stacking: base top (e.g., 6rem) + offset per card
+                  style={{ top: `calc(5rem + ${index * 1.5}rem)` }}
                 >
                   {/* Decorative Number */}
                   <div className="absolute -left-6 md:-left-12 top-0 text-gold/10 font-display text-[8rem] leading-none select-none pointer-events-none group-hover:text-gold/20 transition-colors duration-700 -z-10 -translate-y-8">
@@ -204,7 +206,7 @@ const Platform = () => {
                   />
 
                   {/* Card Content */}
-                  <div className="relative bg-white/95 backdrop-blur-xl p-8 md:p-14 rounded-[2rem] shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-white hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-all duration-700 group-hover:-translate-y-2 overflow-hidden h-full">
+                  <div className="relative bg-white/95 backdrop-blur-xl p-8 md:p-14 rounded-[2rem] border border-white hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-all duration-700 md:group-hover:-translate-y-2 overflow-hidden h-full">
                     
                     {/* Subtle inner corner glow */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 blur-3xl rounded-full" />
@@ -213,7 +215,7 @@ const Platform = () => {
                       {issue.title}
                     </h3>
                     
-                    <div className="w-12 h-1 bg-gold/50 mb-8 group-hover:w-full transition-all duration-1000 ease-out relative z-10" />
+                    <div className="w-12 h-1 bg-gold/50 mb-8 md:group-hover:w-full transition-all duration-1000 ease-out relative z-10" />
                     
                     <p className="font-serif text-lg md:text-xl text-navy/80 leading-[1.8] font-light relative z-10">
                       {issue.body}
