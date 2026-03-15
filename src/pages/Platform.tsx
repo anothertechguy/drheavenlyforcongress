@@ -50,7 +50,7 @@ const Platform = () => {
           <img
             src={heroImage}
             alt="Dr. Heavenly helping patient"
-            className="w-full h-full object-cover object-[50%_30%] md:object-[center_30%] opacity-90 contrast-110 saturate-110"
+            className="w-full h-full object-cover object-[20%_30%] md:object-[30%_30%] lg:object-[center_30%] opacity-90 contrast-110 saturate-110"
           />
         </motion.div>
         
@@ -192,26 +192,29 @@ const Platform = () => {
                   // Calculate dynamic top offset for mobile stacking: base top (e.g., 6rem) + offset per card
                   style={{ top: `calc(5rem + ${index * 1.5}rem)` }}
                 >
-                  {/* Card Content */}
-                  <div className="relative bg-white/95 backdrop-blur-xl p-8 md:p-14 rounded-[2rem] border border-white hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-all duration-700 md:group-hover:-translate-y-2 overflow-hidden h-full">
+                  {/* Animated USA border wrapper */}
+                  <div className="usa-border p-[3px] rounded-[2.2rem] shadow-2xl">
+                    {/* Card Content */}
+                    <div className="relative bg-white backdrop-blur-xl p-8 md:p-14 rounded-[2rem] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-700 md:group-hover:-translate-y-2 overflow-hidden h-full">
                     
-                    {/* Watermark Number */}
-                    <div className="absolute -top-4 -right-2 text-[8rem] md:text-[10rem] leading-none font-display text-gold/[0.07] select-none pointer-events-none group-hover:text-gold/[0.12] transition-colors duration-700">
-                      {String(index + 1).padStart(2, '0')}
+                      {/* Watermark Number */}
+                      <div className="absolute -top-4 -right-2 text-[8rem] md:text-[10rem] leading-none font-display text-gold/[0.18] select-none pointer-events-none group-hover:text-gold/[0.28] transition-colors duration-700">
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
+
+                      {/* Subtle inner corner glow */}
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 blur-3xl rounded-full" />
+
+                      <h3 className="heading-display text-3xl md:text-4xl lg:text-5xl text-navy mb-6 relative z-10 group-hover:text-navy-light transition-colors duration-500">
+                        {issue.title}
+                      </h3>
+                      
+                      <div className="w-12 h-1 bg-gold/50 mb-8 md:group-hover:w-full transition-all duration-1000 ease-out relative z-10" />
+                      
+                      <p className="font-serif text-lg md:text-xl text-navy/80 leading-[1.8] font-light relative z-10">
+                        {issue.body}
+                      </p>
                     </div>
-
-                    {/* Subtle inner corner glow */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 blur-3xl rounded-full" />
-
-                    <h3 className="heading-display text-3xl md:text-4xl lg:text-5xl text-navy mb-6 relative z-10 group-hover:text-navy-light transition-colors duration-500">
-                      {issue.title}
-                    </h3>
-                    
-                    <div className="w-12 h-1 bg-gold/50 mb-8 md:group-hover:w-full transition-all duration-1000 ease-out relative z-10" />
-                    
-                    <p className="font-serif text-lg md:text-xl text-navy/80 leading-[1.8] font-light relative z-10">
-                      {issue.body}
-                    </p>
                   </div>
                 </motion.div>
               ))}

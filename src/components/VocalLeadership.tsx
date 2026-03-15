@@ -69,19 +69,22 @@ const VocalLeadership = () => {
                  hidden: {},
                  visible: { transition: { staggerChildren: 0.03, delayChildren: 0.1 } }
                }}
-               className="heading-display text-5xl md:text-6xl lg:text-7xl mb-12 leading-[1.1] text-center lg:text-left flex flex-wrap justify-center lg:justify-start"
+               className="heading-display text-5xl md:text-6xl lg:text-7xl mb-12 leading-[1.1] text-center lg:text-left"
              >
-               {content.home.vocal_leadership.heading.split("").map((char, i) => (
-                 <motion.span
-                   key={i}
-                   variants={{
-                     hidden: { opacity: 0, y: 10 },
-                     visible: { opacity: 1, y: 0, transition: { duration: 0.2 } }
-                   }}
-                   className={char === " " ? "w-[0.3em]" : ""}
-                 >
-                   {char}
-                 </motion.span>
+               {content.home.vocal_leadership.heading.split(" ").map((word, wi) => (
+                 <span key={wi} className="inline-flex mr-[0.25em]">
+                   {word.split("").map((char, ci) => (
+                     <motion.span
+                       key={ci}
+                       variants={{
+                         hidden: { opacity: 0, y: 10 },
+                         visible: { opacity: 1, y: 0, transition: { duration: 0.2 } }
+                       }}
+                     >
+                       {char}
+                     </motion.span>
+                   ))}
+                 </span>
                ))}
              </motion.h2>
 
@@ -91,12 +94,13 @@ const VocalLeadership = () => {
                    {text}
                  </p>
                ))}
-               <div className="pt-8">
+               <div className="pt-8 flex justify-center">
                  <Link to={content.urls.about} className="btn-navy w-full sm:w-auto text-center">
                    {content.home.vocal_leadership.button}
                  </Link>
                </div>
                <SocialLinks 
+                 className="justify-center"
                  iconClassName="w-12 h-12 bg-white border-navy/10 text-navy hover:border-crimson hover:bg-crimson hover:text-white shadow-sm"
                />
              </motion.div>

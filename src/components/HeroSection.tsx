@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import heroImage from "../assets/hero-family.webp";
 import content from "@/data/content.json";
 
+const isMobile = () => typeof window !== "undefined" && window.innerWidth < 768;
+
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: (i: number) => ({
@@ -33,8 +35,8 @@ const HeroSection = () => {
       <motion.div 
         className="absolute inset-0 z-0 origin-center"
         style={{ y: imageY }}
-        animate={{ scale: [1.05, 1.15] }}
-        transition={{ duration: 25, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+        animate={{ scale: isMobile() ? [1.0, 0.95] : [1.05, 1.15] }}
+        transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
       >
         <img
           src={heroImage}

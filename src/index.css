@@ -110,3 +110,29 @@
     @apply font-sans font-bold tracking-[0.2em] uppercase text-gold;
   }
 }
+
+/* ── Animated USA flag border for Platform cards ── */
+@property --usa-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes usa-border-spin {
+  to { --usa-angle: 360deg; }
+}
+
+.usa-border {
+  --usa-angle: 0deg;
+  background: conic-gradient(
+    from var(--usa-angle),
+    #7a1225 0deg,
+    #c4a35a 55deg,
+    #f5f0e8 110deg,
+    #1b2a4a 165deg,
+    #f5f0e8 220deg,
+    #c4a35a 275deg,
+    #7a1225 360deg
+  );
+  animation: usa-border-spin 12s linear infinite;
+}
