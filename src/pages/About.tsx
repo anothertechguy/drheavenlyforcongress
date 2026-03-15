@@ -46,7 +46,7 @@ const About = () => {
           <img
             src={heroImage}
             alt="Dr. Heavenly and Family"
-            className="object-cover w-full h-full object-[75%_center] sm:object-center opacity-50 mix-blend-luminosity brightness-75 contrast-125"
+            className="object-cover w-full h-full object-[center_40%] opacity-50 mix-blend-luminosity brightness-75 contrast-125"
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-pearl via-navy/30 to-navy/10 z-10" />
