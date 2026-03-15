@@ -44,28 +44,28 @@ const Platform = () => {
       <Navigation />
 
       {/* Cinematic Hero Section */}
-      <section ref={heroRef} className="relative min-h-[70vh] md:min-h-[85vh] flex items-center bg-navy overflow-hidden pt-32">
+      <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[85vh] flex items-center bg-navy overflow-hidden pt-16 md:pt-32">
         {/* Parallax Image Background */}
         <motion.div className="absolute inset-0 z-0" style={{ y: imageY }}>
           <img
             src={heroImage}
             alt="Dr. Heavenly helping patient"
-            className="w-full h-full object-cover object-[center_30%] opacity-90 contrast-110 saturate-110"
+            className="w-full h-full object-cover object-[70%_20%] sm:object-[80%_30%] md:object-[center_30%] opacity-90 contrast-110 saturate-110"
           />
         </motion.div>
         
-        {/* High-end Overlays - Adjusted to fade from right to left */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-l from-navy/95 via-navy/60 to-transparent" />
-        <div className="absolute inset-0 z-0 bg-gradient-to-t from-pearl via-navy/10 to-transparent" />
-        <div className="absolute inset-0 z-0 bg-navy/20 mix-blend-multiply" />
+        {/* High-end Overlays */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-l from-navy/95 via-navy/50 to-transparent" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-t from-pearl/90 via-navy/5 to-transparent md:bg-gradient-to-t md:from-pearl md:via-navy/10 md:to-transparent" />
+        <div className="absolute inset-0 z-0 bg-navy/10 mix-blend-multiply" />
 
-        <div className="container relative z-10 flex justify-end">
-          <div className="max-w-3xl text-right flex flex-col items-end">
+        <div className="container relative z-10 flex justify-end pb-8 md:pb-0 h-full">
+          <div className="max-w-3xl text-right flex flex-col items-end mt-auto md:mt-0 md:justify-center">
             <motion.div 
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="flex items-center justify-end gap-4 mb-8"
+              className="flex items-center justify-end gap-4 mb-4 md:mb-8"
             >
               <span className="font-sans font-bold uppercase tracking-[0.4em] text-gold text-xs md:text-sm drop-shadow-md">
                 Our Vision
@@ -77,7 +77,7 @@ const Platform = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="heading-display text-6xl md:text-8xl lg:text-9xl text-white mb-8 leading-[1.05] drop-shadow-lg"
+              className="heading-display text-5xl md:text-8xl lg:text-9xl text-white mb-6 md:mb-8 leading-[1.05] drop-shadow-lg"
             >
               Platform <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-l from-white via-white/90 to-white/60 drop-shadow-md">Map</span>
@@ -87,7 +87,7 @@ const Platform = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-xl md:text-3xl text-white max-w-2xl font-light leading-relaxed drop-shadow-xl"
+              className="font-serif text-lg sm:text-xl md:text-3xl text-navy md:text-white max-w-2xl font-light leading-relaxed drop-shadow-none md:drop-shadow-xl"
             >
               I am fighting for the issues that matter most to District 13 families. We're building a stronger future together.
             </motion.p>
@@ -95,7 +95,7 @@ const Platform = () => {
         </div>
 
         {/* Diagonal Cut out to next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-pearl to-transparent z-20" />
+        <div className="absolute bottom-0 left-0 right-0 h-16 md:h-32 bg-gradient-to-t from-pearl to-transparent z-20" />
       </section>
 
       {/* High-End Luxury Divider */}
@@ -150,9 +150,9 @@ const Platform = () => {
       </div>
 
       {/* Dynamic Sticky Scrolling Issues List */}
-      <section className="py-24 md:py-40 bg-pearl relative z-10" ref={containerRef}>
+      <section className="py-12 md:py-32 bg-pearl relative z-10" ref={containerRef}>
         <div className="container max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start">
             
             {/* Left Sticky Title Area */}
             <div className="lg:col-span-5 lg:sticky lg:top-40 hidden lg:block">
@@ -180,14 +180,14 @@ const Platform = () => {
             </div>
 
             {/* Right Scrolling Content Area */}
-            <div className="lg:col-span-7 space-y-12 md:space-y-24">
+            <div className="lg:col-span-7 space-y-12 md:space-y-24 mt-8 md:mt-0">
               {platformItems.map((issue, index) => (
                 <motion.div 
                   key={index}
-                  initial={{ opacity: 0, y: 60 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-15%" }}
-                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: index === 0 ? 0.2 : 0 }}
                   className="group relative"
                 >
                   {/* Decorative Number */}
