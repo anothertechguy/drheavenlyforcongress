@@ -1,7 +1,7 @@
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import content from "@/data/content.json";
 import SocialLinks from "@/components/SocialLinks";
 
@@ -38,12 +38,12 @@ const Navigation = () => {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between">
-        <a href="/" className="relative z-10 group">
+        <Link to="/" className="relative z-10 group">
           <h1 className="font-display font-bold text-2xl md:text-3xl text-white tracking-widest uppercase flex items-center gap-2">
             Dr. Heavenly
             <span className="text-gold font-sans text-sm tracking-[0.3em] opacity-80 mt-1 hidden md:block">For Congress</span>
           </h1>
-        </a>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-10">
           {[
@@ -51,13 +51,13 @@ const Navigation = () => {
             { name: 'Platform', href: content.urls.platform, show: true },
             { name: 'About', href: content.urls.about, show: true },
           ].filter(item => item.show).map((item) => (
-            <a 
+            <Link 
               key={item.name} 
-              href={item.href}
+              to={item.href}
               className="font-sans text-sm font-bold tracking-[0.2em] text-white/80 hover:text-gold transition-colors uppercase relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[1px] after:bg-gold after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -127,17 +127,20 @@ const Navigation = () => {
               { name: 'About', href: content.urls.about, show: true },
               { name: 'Store', href: content.urls.shop, show: true },
             ].filter(item => item.show).map((item, i) => (
-              <motion.a 
+              <motion.div 
                 key={item.name} 
-                href={item.href}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="font-display text-4xl text-white hover:text-gold transition-colors block text-center uppercase tracking-wider"
               >
-                {item.name}
-              </motion.a>
+                <Link
+                  to={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="font-display text-4xl text-white hover:text-gold transition-colors block text-center uppercase tracking-wider"
+                >
+                  {item.name}
+                </Link>
+              </motion.div>
             ))}
           </nav>
 

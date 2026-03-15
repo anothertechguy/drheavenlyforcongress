@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import heroImage from "../assets/hero-family.png";
 import content from "@/data/content.json";
 
@@ -98,12 +99,12 @@ const HeroSection = () => {
             animate="visible"
             variants={textVariants}
           >
-            <a
-              href="/#voter-info"
+            <Link
+              to="/#voter-info"
               className="btn-navy w-full sm:w-auto text-center"
             >
               VOTE NOW
-            </a>
+            </Link>
 
             <a
               href={content.urls.donate}

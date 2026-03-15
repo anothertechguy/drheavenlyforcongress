@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import content from "@/data/content.json";
 import ga13Map from "../assets/ga13-map.png";
 
@@ -40,19 +41,19 @@ const PlatformPreview = () => {
               <p className="font-sans text-base md:text-lg font-light opacity-90 leading-relaxed text-white/80">
                 {content.home.platform_preview.description.split('\n')[1].split(/(SOLD OUT TO THE DISTRICT!! Platform)/g).map((part, i) =>
                   part === 'SOLD OUT TO THE DISTRICT!! Platform'
-                    ? <strong key={i} className="font-bold text-white tracking-wide">{part}</strong>
+                    ? <Link key={i} to={content.urls.platform} className="font-bold text-white tracking-wide hover:text-gold transition-colors underline decoration-gold/50 underline-offset-4">{part}</Link>
                     : part
                 )}
               </p>
             </div>
             
             <div className="mt-14">
-              <a 
-                href={content.urls.platform} 
+              <Link 
+                to={content.urls.platform} 
                 className="btn-gold"
               >
                 {content.home.platform_preview.button}
-              </a>
+              </Link>
             </div>
           </motion.div>
 

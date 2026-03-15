@@ -1,4 +1,5 @@
 import { motion, Variants } from "framer-motion";
+import { Link } from "react-router-dom";
 import content from "@/data/content.json";
 import drHeavImage from "../assets/dr-heavenly-flag.jpg";
 import SocialLinks from "@/components/SocialLinks";
@@ -73,14 +74,14 @@ const VocalLeadership = () => {
                    {text}
                  </p>
                ))}
-               <div className="pt-8 flex flex-col gap-8 items-start">
-                 <a href={content.urls.about} className="btn-navy w-full sm:w-auto text-center">
+               <div className="pt-8">
+                 <Link to={content.urls.about} className="btn-navy w-full sm:w-auto text-center">
                    {content.home.vocal_leadership.button}
-                 </a>
-                 <SocialLinks 
-                   iconClassName="w-12 h-12 bg-white border-navy/10 text-navy hover:border-crimson hover:bg-crimson hover:text-white shadow-sm"
-                 />
+                 </Link>
                </div>
+               <SocialLinks 
+                 iconClassName="w-12 h-12 bg-white border-navy/10 text-navy hover:border-crimson hover:bg-crimson hover:text-white shadow-sm"
+               />
              </motion.div>
           </div>
         </motion.div>
