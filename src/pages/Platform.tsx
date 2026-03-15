@@ -192,14 +192,14 @@ const Platform = () => {
                   // Calculate dynamic top offset for mobile stacking: base top (e.g., 6rem) + offset per card
                   style={{ top: `calc(5rem + ${index * 1.5}rem)` }}
                 >
-                  {/* Decorative Number */}
-                  <div className="absolute -left-6 md:-left-12 top-0 text-gold/10 font-display text-[8rem] leading-none select-none pointer-events-none group-hover:text-gold/20 transition-colors duration-700 -z-10 -translate-y-8">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-
                   {/* Card Content */}
                   <div className="relative bg-white/95 backdrop-blur-xl p-8 md:p-14 rounded-[2rem] border border-white hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-all duration-700 md:group-hover:-translate-y-2 overflow-hidden h-full">
                     
+                    {/* Watermark Number */}
+                    <div className="absolute -top-4 -right-2 text-[8rem] md:text-[10rem] leading-none font-display text-gold/[0.07] select-none pointer-events-none group-hover:text-gold/[0.12] transition-colors duration-700">
+                      {String(index + 1).padStart(2, '0')}
+                    </div>
+
                     {/* Subtle inner corner glow */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 blur-3xl rounded-full" />
 

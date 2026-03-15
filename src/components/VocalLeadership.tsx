@@ -61,11 +61,28 @@ const VocalLeadership = () => {
 
           {/* Text Column */}
           <div className="flex flex-col justify-center">
-             <motion.h2 
-               variants={itemVariants}
-               className="heading-display text-5xl md:text-6xl lg:text-7xl mb-12 leading-[1.1]"
+             <motion.h2
+               initial="hidden"
+               whileInView="visible"
+               viewport={{ once: true }}
+               variants={{
+                 hidden: {},
+                 visible: { transition: { staggerChildren: 0.03, delayChildren: 0.1 } }
+               }}
+               className="heading-display text-5xl md:text-6xl lg:text-7xl mb-12 leading-[1.1] text-center lg:text-left flex flex-wrap justify-center lg:justify-start"
              >
-               {content.home.vocal_leadership.heading}
+               {content.home.vocal_leadership.heading.split("").map((char, i) => (
+                 <motion.span
+                   key={i}
+                   variants={{
+                     hidden: { opacity: 0, y: 10 },
+                     visible: { opacity: 1, y: 0, transition: { duration: 0.2 } }
+                   }}
+                   className={char === " " ? "w-[0.3em]" : ""}
+                 >
+                   {char}
+                 </motion.span>
+               ))}
              </motion.h2>
 
              <motion.div variants={itemVariants} className="space-y-8 pr-0 lg:pr-8">

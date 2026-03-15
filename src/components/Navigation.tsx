@@ -1,7 +1,7 @@
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import content from "@/data/content.json";
 import SocialLinks from "@/components/SocialLinks";
 import menuHero from "../assets/menu-hero.webp";
@@ -10,8 +10,6 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -48,7 +46,6 @@ const Navigation = () => {
 
         <nav className="hidden lg:flex items-center gap-10">
           {[
-            { name: 'Home', href: '/', show: !isHomePage },
             { name: 'Platform', href: content.urls.platform, show: true },
             { name: 'About', href: content.urls.about, show: true },
           ].filter(item => item.show).map((item) => (
@@ -135,7 +132,6 @@ const Navigation = () => {
           {/* Mobile Links */}
           <nav className="flex flex-col gap-6 mb-10 items-center w-full relative z-10">
             {[
-              { name: 'Home', href: '/', show: !isHomePage },
               { name: 'Platform', href: content.urls.platform, show: true },
               { name: 'About', href: content.urls.about, show: true },
               { name: 'Store', href: content.urls.shop, show: true },
