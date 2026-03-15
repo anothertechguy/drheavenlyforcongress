@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import content from "@/data/content.json";
 import SocialLinks from "@/components/SocialLinks";
+import menuHero from "../assets/menu-hero.webp";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -103,15 +104,27 @@ const Navigation = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: "-100%" }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-0 z-[100] bg-navy flex flex-col pt-8 px-6 pb-12 overflow-y-auto"
+          className="fixed inset-0 z-[100] flex flex-col pt-8 px-6 pb-12 overflow-y-auto"
         >
+          {/* Background image with USA flag gradient overlays */}
+          <div className="absolute inset-0 z-0">
+            <img src={menuHero} alt="" className="w-full h-full object-cover object-[center_30%]" />
+            {/* Deep navy overlay to darken and make text legible */}
+            <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/75 to-navy/95" />
+            {/* Subtle USA crimson stripe at top */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson via-white/30 to-[#3c3b6e]" />
+            {/* Subtle USA crimson stripe at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3c3b6e] via-white/30 to-crimson" />
+          </div>
+
           {/* Mobile Header */}
-          <div className="flex items-center justify-between mb-16">
-            <h1 className="font-display font-bold text-2xl text-white tracking-widest uppercase flex items-center gap-2">
+          <div className="flex items-center justify-between mb-12 relative z-10">
+            <h1 className="font-display font-bold text-xl text-white tracking-widest uppercase flex items-baseline gap-2">
               Dr. Heavenly
+              <span className="text-gold font-sans text-[10px] tracking-[0.3em] opacity-90">For Congress</span>
             </h1>
             <button 
-              className="text-white p-2 rounded-full bg-white/5 border border-white/10"
+              className="text-white p-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm"
               onClick={() => setIsMobileMenuOpen(false)}
               aria-label="Close Mobile Menu"
             >
@@ -120,7 +133,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Links */}
-          <nav className="flex flex-col gap-6 mb-16 items-center w-full">
+          <nav className="flex flex-col gap-6 mb-10 items-center w-full relative z-10">
             {[
               { name: 'Home', href: '/', show: !isHomePage },
               { name: 'Platform', href: content.urls.platform, show: true },
@@ -136,7 +149,7 @@ const Navigation = () => {
                 <Link
                   to={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="font-display text-4xl text-white hover:text-gold transition-colors block text-center uppercase tracking-wider"
+                  className="font-display text-4xl text-white hover:text-gold transition-colors block text-center uppercase tracking-wider drop-shadow-lg"
                 >
                   {item.name}
                 </Link>
@@ -144,11 +157,11 @@ const Navigation = () => {
             ))}
           </nav>
 
-          <div className="mt-auto flex flex-col gap-8 items-center">
+          <div className="mt-auto flex flex-col gap-6 items-center relative z-10">
             <div className="flex flex-col w-full gap-4 sm:flex-row justify-center max-w-sm mx-auto">
               <a
                 href="/#voter-info"
-                className="btn-outline border-white text-white hover:bg-white hover:text-navy w-full text-center py-4"
+                className="btn-outline border-white/70 text-white hover:bg-white hover:text-navy w-full text-center py-4 backdrop-blur-sm"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 VOTE NOW
