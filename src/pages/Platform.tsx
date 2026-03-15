@@ -3,8 +3,8 @@ import { useRef } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import VoterInformation from "@/components/VoterInformation";
-import heroImage from "../assets/helping patient.png";
-import drHeav1 from "../assets/drheav4.png";
+import heroImage from "../assets/helping patient.webp";
+import drHeav1 from "../assets/drheav4.webp";
 
 const platformItems = [
   {

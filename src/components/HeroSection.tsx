@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import heroImage from "../assets/hero-family.png";
+import heroImage from "../assets/hero-family.webp";
 import content from "@/data/content.json";
 
 const textVariants = {

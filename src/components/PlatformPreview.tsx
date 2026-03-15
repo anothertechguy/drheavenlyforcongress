@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import content from "@/data/content.json";
-import ga13Map from "../assets/ga13-map.png";
+import ga13Map from "../assets/ga13-map.webp";
 
 const PlatformPreview = () => {
   return (

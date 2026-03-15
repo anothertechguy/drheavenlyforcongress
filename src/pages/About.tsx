@@ -2,8 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import heroImage from "../assets/dr-heavenly-couple.png";
-import congressBg from "../assets/congress-bg.png";
+import heroImage from "../assets/dr-heavenly-couple.webp";
+import congressBg from "../assets/congress-bg.webp";
 
 const letterParagraphs = [
   "My name is Dr. Heavenly Elaine Kimes, and I am applying for the job of your next Representative in the United States Congress.",

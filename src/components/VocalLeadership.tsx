@@ -1,7 +1,7 @@
 import { motion, Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import content from "@/data/content.json";
-import drHeavImage from "../assets/dr-heavenly-flag.jpg";
+import drHeavImage from "../assets/dr-heavenly-flag.webp";
 import SocialLinks from "@/components/SocialLinks";
 
 const containerVariants = {
