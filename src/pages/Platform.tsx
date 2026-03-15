@@ -50,14 +50,14 @@ const Platform = () => {
           <img
             src={heroImage}
             alt="Dr. Heavenly helping patient"
-            className="w-full h-full object-cover object-[70%_20%] sm:object-[80%_30%] md:object-[center_30%] opacity-90 contrast-110 saturate-110"
+            className="w-full h-full object-cover object-[50%_30%] md:object-[center_30%] opacity-90 contrast-110 saturate-110"
           />
         </motion.div>
         
         {/* High-end Overlays */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-l from-navy/95 via-navy/50 to-transparent" />
-        <div className="absolute inset-0 z-0 bg-gradient-to-t from-pearl/90 via-navy/5 to-transparent md:bg-gradient-to-t md:from-pearl md:via-navy/10 md:to-transparent" />
-        <div className="absolute inset-0 z-0 bg-navy/10 mix-blend-multiply" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-l from-navy/95 via-navy/60 to-navy/20" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-t from-pearl via-navy/20 to-transparent" />
+        <div className="absolute inset-0 z-0 bg-navy/15 mix-blend-multiply" />
 
         <div className="container relative z-10 flex justify-end pb-8 md:pb-0 h-full">
           <div className="max-w-3xl text-right flex flex-col items-end mt-auto md:mt-0 md:justify-center">
@@ -87,7 +87,7 @@ const Platform = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-lg sm:text-xl md:text-3xl text-navy md:text-white max-w-2xl font-light leading-relaxed drop-shadow-none md:drop-shadow-xl"
+              className="font-serif text-lg sm:text-xl md:text-3xl text-white/90 max-w-2xl font-light leading-relaxed drop-shadow-xl"
             >
               I am fighting for the issues that matter most to District 13 families. We're building a stronger future together.
             </motion.p>
