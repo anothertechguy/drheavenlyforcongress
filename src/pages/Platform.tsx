@@ -197,14 +197,6 @@ const Platform = () => {
                     {String(index + 1).padStart(2, '0')}
                   </div>
 
-                  {/* Animated USA Border Background */}
-                  <motion.div 
-                    className="absolute -inset-[3px] rounded-[2.2rem] opacity-60 pointer-events-none"
-                    animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-                    transition={{ duration: 6, ease: "linear", repeat: Infinity }}
-                    style={{ backgroundImage: "linear-gradient(90deg, #b22234 0%, #ffffff 50%, #3c3b6e 100%)", backgroundSize: "200% 200%" }}
-                  />
-
                   {/* Card Content */}
                   <div className="relative bg-white/95 backdrop-blur-xl p-8 md:p-14 rounded-[2rem] border border-white hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-all duration-700 md:group-hover:-translate-y-2 overflow-hidden h-full">
                     
