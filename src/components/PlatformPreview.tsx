@@ -26,9 +26,19 @@ const PlatformPreview = () => {
               </span>
             </div>
             
-            <h2 className="heading-display text-4xl md:text-5xl lg:text-6xl text-white mb-8 leading-[1.1]">
+            <motion.h2
+              className="heading-display text-4xl md:text-5xl lg:text-6xl text-white mb-8 leading-[1.1] origin-left"
+              initial={{ opacity: 0, scale: 0.6 }}
+              whileInView={{
+                opacity: 1,
+                scale: [0.6, 1.08, 0.96, 1.03, 1.0],
+                rotate: [0, -1.5, 1.5, -0.75, 0],
+              }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            >
               {content.home.platform_preview.heading}
-            </h2>
+            </motion.h2>
             
             <div className="space-y-8 text-pearl/90 font-serif text-xl md:text-2xl leading-[1.8] font-light">
               <p>

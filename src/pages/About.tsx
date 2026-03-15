@@ -46,7 +46,7 @@ const About = () => {
           <img
             src={heroImage}
             alt="Dr. Heavenly and Family"
-            className="object-cover w-full h-full object-[25%_40%] md:object-[35%_40%] lg:object-[center_40%] opacity-50 mix-blend-luminosity brightness-75 contrast-125"
+            className="object-cover w-full h-full object-[30%_20%] md:object-[40%_15%] lg:object-[center_15%] opacity-50 mix-blend-luminosity brightness-75 contrast-125"
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-pearl via-navy/30 to-navy/10 z-10" />
@@ -205,12 +205,12 @@ const About = () => {
           <img
             src={congressBg}
             alt="US Capitol"
-            className="w-full h-full object-cover object-[center_top] opacity-40 mix-blend-screen"
+            className="w-full h-full object-cover object-[center_top] opacity-65"
           />
         </motion.div>
         {/* Gradients to blend edges */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-pearl via-transparent to-pearl" />
-        <div className="absolute inset-0 z-0 bg-navy/60" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-navy/80 via-transparent to-navy/80" />
+        <div className="absolute inset-0 z-0 bg-navy/30" />
         
         <div className="container max-w-5xl relative z-10">
           <motion.div 

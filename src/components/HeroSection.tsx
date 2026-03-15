@@ -6,24 +6,10 @@ import content from "@/data/content.json";
 
 const isMobile = () => typeof window !== "undefined" && window.innerWidth < 768;
 
-const textVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { 
-      duration: 1.2, 
-      ease: [0.16, 1, 0.3, 1] as [number, number, number, number], 
-      delay: i * 0.1 
-    },
-  }),
-};
-
 const HeroSection = () => {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  
-  // High-end parallax scaling and movement
+
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
 
@@ -31,8 +17,8 @@ const HeroSection = () => {
 
   return (
     <section ref={ref} className="relative min-h-[100svh] flex items-center bg-navy overflow-hidden">
-      {/* Background Image Parallax & Ken Burns */}
-      <motion.div 
+      {/* Background Image */}
+      <motion.div
         className="absolute inset-0 z-0 origin-center"
         style={{ y: imageY }}
         animate={{ scale: isMobile() ? [1.0, 0.95] : [1.05, 1.15] }}
@@ -41,73 +27,74 @@ const HeroSection = () => {
         <img
           src={heroImage}
           alt="Dr. Heavenly Kimes and Family"
-          className="object-cover w-full h-full object-center opacity-90 mix-blend-luminosity brightness-110 contrast-110"
+          className="object-cover w-full h-full object-center opacity-95 contrast-105"
         />
       </motion.div>
 
       {/* Cinematic Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-navy/60 to-transparent z-10" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,rgba(10,20,35,0.5)_100%)] z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-navy/10 z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,rgba(5,10,25,0.4)_100%)] z-10" />
 
-      {/* Bottom Transition to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-20" />
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent z-20" />
 
-      {/* Content Container */}
-      <div className="container relative z-20 flex flex-col justify-end pb-16 h-full pt-[15vh] md:pt-[30vh]">
-        <motion.div className="max-w-5xl mx-auto text-center flex flex-col items-center" style={{ y: textY }}>
-          
+      {/* Content */}
+      <div className="container relative z-20 flex flex-col justify-between min-h-[100svh] py-0">
+        <motion.div
+          className="max-w-5xl mx-auto text-center flex flex-col items-center w-full mt-auto mb-16 md:mb-20"
+          style={{ y: textY }}
+        >
+          {/* Yellow Tag Line — moved high */}
           <motion.div
-            className="flex flex-col items-center gap-4 mb-8"
-            custom={0}
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
+            className="flex flex-col items-center gap-3 mb-8"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="font-sans font-bold tracking-[0.4em] uppercase text-gold text-xs md:text-sm drop-shadow-md">
               Candidate for Georgia's 13th District
             </span>
-            <div className="h-[1px] w-24 bg-gold shadow-[0_0_15px_rgba(255,215,0,0.5)]" />
+            <div className="h-[1px] w-20 bg-gold/70 shadow-[0_0_12px_rgba(255,200,50,0.5)]" />
           </motion.div>
-          
-          <motion.h1
-            className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.1] text-white font-medium mb-6 drop-shadow-2xl flex flex-wrap justify-center gap-x-6 gap-y-4"
-            custom={1}
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
-          >
-            {words.map((part, i, arr) => (
-              <span key={i} className="block whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-b from-white via-pearl to-white/80 drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
-                {part}{i !== arr.length - 1 && <span className="text-gold mx-2">.</span>}
-                {i === arr.length - 1 && <span className="text-gold hidden">.</span>}
-              </span>
+
+          {/* Headline — each word staggers in */}
+          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.15] text-white font-medium mb-6 flex flex-wrap justify-center gap-x-5 gap-y-3">
+            {words.map((word, i) => (
+              <motion.span
+                key={i}
+                className="block whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/75 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]"
+                initial={{ opacity: 0, y: 50, scale: 0.88, filter: "blur(10px)" }}
+                animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.45 + i * 0.2,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                {word.replace(/\.$/, '')}
+                <span className="text-gold ml-1">.</span>
+              </motion.span>
             ))}
-          </motion.h1>
+          </h1>
 
           <motion.p
-            className="font-sans text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed mb-10 drop-shadow-md"
-            custom={2}
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
+            className="font-sans text-base md:text-xl text-white/85 max-w-2xl mx-auto font-light leading-relaxed mb-10 drop-shadow-md px-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.45 + words.length * 0.18, ease: [0.16, 1, 0.3, 1] }}
           >
             {content.home.hero.sub_heading}
           </motion.p>
 
           <motion.div
             className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 w-full px-6 sm:px-0"
-            custom={3}
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.65 + words.length * 0.18, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Link
-              to="/#voter-info"
-              className="btn-navy w-full sm:w-auto text-center"
-            >
+            <Link to="/#voter-info" className="btn-navy w-full sm:w-auto text-center">
               VOTE NOW
             </Link>
-
             <a
               href={content.urls.donate}
               target="_blank"
@@ -120,12 +107,12 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Modern Scroll Indicator */}
-      <motion.div 
+      {/* Scroll Indicator */}
+      <motion.div
         className="absolute bottom-12 left-12 z-20 hidden md:flex items-center gap-4"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1.5, duration: 1 }}
+        transition={{ delay: 2.2, duration: 1 }}
       >
         <span className="text-white/50 text-[10px] font-sans font-bold tracking-[0.3em] uppercase rotate-[-90deg] origin-left translate-y-6">Scroll</span>
         <div className="w-[1px] h-24 bg-gradient-to-b from-gold via-gold/50 to-transparent" />
