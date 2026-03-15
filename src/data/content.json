@@ -1,0 +1,63 @@
+{
+  "urls": {
+    "donate": "https://secure.actblue.com/donate/homepage11",
+    "volunteer": "https://secure.numero.ai/signup/Dr-Heavenly-for-Georgia-New-Landing-4",
+    "shop": "https://dr-heavenly-for-georgia.myshopify.com/",
+    "about": "/about",
+    "platform": "/platform"
+  },
+  "home": {
+    "hero": {
+      "heading": "MOTHER. WIFE. DOCTOR. LEADER.",
+      "sub_heading": "Democratic Congressional Candidate building a healthier, wealthier, stronger Georgia District 13.",
+      "buttons": {
+        "contribute": "Contribute",
+        "volunteer": "VOLUNTEER"
+      }
+    },
+    "vocal_leadership": {
+      "pre_heading": "We need more than a vote, we need a VOICE!",
+      "heading": "Vocal Leadership",
+      "paragraphs": [
+        "Dr. Heavenly Kimes is a dentist, entrepreneur, author, and national television personality who turned determination and faith into a life of service and success.",
+        "From humble beginnings, she built one of Georgia’s most respected dental practices and went on to help others launch their own small businesses creating opportunities in every county across Georgia’s 13th District.",
+        "As a wife, mother, and doctor, Dr. Heavenly understands the real challenges families face: from healthcare costs to financial insecurity. That’s why she’s focused on helping others gain the tools to build wealth, stability, and legacy.",
+        "Now, she’s bringing that same drive and discipline to Congress, to expand opportunity, strengthen families, and make sure every community in Georgia’s 13th has a chance to rise."
+      ],
+      "button": "ABOUT DR. HEAVENLY"
+    },
+    "platform_preview": {
+      "heading": "SOLD OUT TO THE DISTRICT!!",
+      "sub_heading": "District 13 Platform",
+      "description": "Dr. Heavenly Kimes is fighting for the issues that matter most to District 13 families. From Accessible Healthcare that puts patients over profits, to Building Community Wealth through homeownership and entrepreneurship—she’s focused on breaking cycles and creating opportunity. Her platform champions Education & Opportunity so every child can succeed, whether they’re college-bound, trade-focused, or future business owners. She’s committed to Supporting Families & Safer Communities because when parents have what they need, neighborhoods thrive. And as a small business owner herself, Dr. Heavenly understands how Small Business & Jobs power our district’s economy.\nReady to learn more? Check out the full SOLD OUT TO THE DISTRICT!! Platform to see how we’re building a stronger future together.",
+      "button": "Platform"
+    },
+    "support": {
+      "heading": "SHOW YOUR SUPPORT!",
+      "donate_button": "DONATE NOW"
+    },
+    "join": {
+      "heading": "Join Team Heavenly!",
+      "button": "UPCOMING OPPORTUNITIES"
+    },
+    "merch": {
+      "heading": "HEAVENLY MERCH",
+      "button": "SHOP NOW"
+    },
+    "election": {
+      "heading": "Primary Election: May 19, 2026",
+      "vote_button": "HOW TO VOTE",
+      "vote_url": "https://iwillvote.com/?state=GA",
+      "sub_heading": "GEORGIA DISTRICT 13 IMPORTANT DATES",
+      "dates": [
+        { "label": "Voter Registration Deadline:", "date": "April 20, 2026" },
+        { "label": "Absentee Ballots Start Mailing:", "date": "April 20, 2026" },
+        { "label": "In-Person Early Voting:", "date": "April 27 \u2013 May 15, 2026" },
+        { "label": "Primary Runoff (if needed):", "date": "June 16, 2026" }
+      ]
+    },
+    "footer": {
+      "heading": "FOR ALL OF US"
+    }
+  }
+}

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700;800&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 98%; /* pearl white */
+    --foreground: 215 60% 10%; /* very dark navy */
+
+    --primary: 215 60% 15%; /* navy */
+    --primary-foreground: 40 20% 98%;
+
+    --secondary: 40 20% 92%;
+    --secondary-foreground: 215 60% 15%;
+
+    --muted: 40 10% 85%;
+    --muted-foreground: 215 30% 40%;
+
+    --accent: 350 75% 45%; /* crimson */
+    --accent-foreground: 0 0% 100%;
+
+    --border: 40 15% 85%;
+    --input: 40 15% 85%;
+    --ring: 45 90% 55%; /* gold */
+    
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-navy selection:text-white;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-balance;
+  }
+}
+
+@layer components {
+  /* High-end glassmorphism */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white/50 shadow-glass rounded-3xl transition-all duration-500 ease-out hover:shadow-glass-hover hover:border-gold/30;
+  }
+  
+  .glass-nav {
+    @apply bg-background/80 backdrop-blur-md border-b border-white/20 shadow-sm;
+  }
+
+  /* Cinematic Buttons */
+  .btn-navy {
+    @apply relative overflow-hidden bg-navy text-white px-10 py-5 rounded-full font-sans font-bold tracking-[0.2em] uppercase text-sm transition-all duration-500 shadow-[0_10px_30px_rgba(10,20,35,0.25)] hover:shadow-[0_15px_40px_rgba(10,20,35,0.4)] hover:-translate-y-1 inline-flex items-center justify-center;
+  }
+  .btn-navy::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-[800ms] ease-[cubic-bezier(0.19,1,0.22,1)];
+  }
+  .btn-navy:hover::after {
+    @apply translate-x-full;
+  }
+
+  .btn-crimson {
+    @apply relative overflow-hidden bg-crimson text-white px-10 py-5 rounded-full font-sans font-bold tracking-[0.2em] uppercase text-sm transition-all duration-500 shadow-[0_10px_30px_rgba(200,20,40,0.3)] hover:shadow-[0_15px_40px_rgba(200,20,40,0.5)] hover:-translate-y-1 inline-flex items-center justify-center;
+  }
+  .btn-crimson::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full transition-transform duration-[800ms] ease-[cubic-bezier(0.19,1,0.22,1)];
+  }
+  .btn-crimson:hover::after {
+    @apply translate-x-full;
+  }
+
+  .btn-gold {
+    @apply relative overflow-hidden bg-gold text-navy px-10 py-5 rounded-full font-sans font-bold tracking-[0.2em] uppercase text-sm transition-all duration-500 shadow-[0_10px_30px_rgba(255,215,0,0.3)] hover:shadow-[0_15px_40px_rgba(255,215,0,0.5)] hover:-translate-y-1 inline-flex items-center justify-center;
+  }
+  .btn-gold::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full transition-transform duration-[800ms] ease-[cubic-bezier(0.19,1,0.22,1)];
+  }
+  .btn-gold:hover::after {
+    @apply translate-x-full;
+  }
+
+  .btn-outline {
+    @apply relative overflow-hidden border border-navy/20 text-navy px-10 py-5 rounded-full font-sans font-bold tracking-[0.2em] uppercase text-sm transition-all duration-500 hover:border-navy hover:bg-navy/5 inline-flex items-center justify-center;
+  }
+
+  /* Typography Utilities */
+  .heading-display {
+    @apply font-display tracking-tight text-navy;
+  }
+  
+  .heading-serif {
+    @apply font-serif tracking-tight text-navy;
+  }
+
+  .font-signature {
+    font-family: 'Great Vibes', cursive;
+  }
+
+  .subheading {
+    @apply font-sans font-bold tracking-[0.2em] uppercase text-gold;
+  }
+}
