@@ -39,19 +39,19 @@ const HeroSection = () => {
         <img
           src={heroImage}
           alt="Dr. Heavenly Kimes and Family"
-          className="object-cover w-full h-full object-center opacity-80 mix-blend-luminosity brightness-90 contrast-110"
+          className="object-cover w-full h-full object-center opacity-90 mix-blend-luminosity brightness-110 contrast-110"
         />
       </motion.div>
 
       {/* Cinematic Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-navy/50 to-navy/30 z-10" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,rgba(10,20,35,0.7)_100%)] z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-navy/60 to-transparent z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,rgba(10,20,35,0.5)_100%)] z-10" />
 
       {/* Bottom Transition to next section */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-20" />
 
       {/* Content Container */}
-      <div className="container relative z-20 flex flex-col justify-end pb-16 h-full pt-[30vh]">
+      <div className="container relative z-20 flex flex-col justify-end pb-16 h-full pt-[15vh] md:pt-[30vh]">
         <motion.div className="max-w-5xl mx-auto text-center flex flex-col items-center" style={{ y: textY }}>
           
           <motion.div
@@ -113,15 +113,6 @@ const HeroSection = () => {
               className="btn-crimson w-full sm:w-auto text-center"
             >
               {content.home.hero.buttons.contribute}
-            </a>
-            
-            <a
-              href={content.urls.volunteer}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline border-white/20 text-white hover:border-gold hover:text-gold hover:bg-gold/5 w-full sm:w-auto text-center"
-            >
-              {content.home.hero.buttons.volunteer}
             </a>
           </motion.div>
         </motion.div>
