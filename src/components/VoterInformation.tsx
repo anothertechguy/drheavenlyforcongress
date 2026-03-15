@@ -114,18 +114,18 @@ const VoterInformation = () => {
 
         {/* 3x2 County Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {counties.map((county, index) => {
+          {counties.map((county) => {
             const theme = getThemeClasses(county.theme);
             const pathData = countyPaths[county.name];
 
             return (
               <motion.div
                 key={county.name}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 + (index * 0.1) }}
-                className="group relative bg-white rounded-2xl shadow-sm hover:shadow-xl hover:shadow-navy/10 border border-navy/10 transition-all duration-500 overflow-hidden flex flex-col h-[280px]"
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="group relative bg-white rounded-2xl shadow-sm hover:shadow-xl hover:shadow-navy/10 border border-navy/10 transition-shadow duration-300 overflow-hidden flex flex-col h-[280px] will-change-transform"
               >
                 {/* Background Map Graphic Base */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${theme.bgGradient} ${theme.hoverGradient} transition-colors duration-500`} />
@@ -134,9 +134,9 @@ const VoterInformation = () => {
                 <div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_48%,rgba(179,25,66,0.03)_50%,transparent_52%)] bg-[length:100%_20px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0 pointer-events-none" />
 
                 {/* Highly Scaled County SVG Map Background */}
-                <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[15%] w-[130%] h-[130%] opacity-80 group-hover:scale-110 group-hover:-translate-x-4 transition-all duration-[1500ms] pointer-events-none flex items-center justify-center z-0">
+                <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[15%] w-[130%] h-[130%] opacity-80 group-hover:scale-110 group-hover:-translate-x-4 transition-transform duration-700 ease-out pointer-events-none flex items-center justify-center z-0 will-change-transform">
                   {pathData ? (
-                    <svg viewBox="0 0 100 100" className={`w-full h-full ${theme.svgFill} drop-shadow-sm`}>
+                    <svg viewBox="0 0 100 100" className={`w-full h-full ${theme.svgFill}`}>
                       <path d={pathData} fill="currentColor" stroke="currentColor" strokeWidth="0.5" className={theme.svgStroke} />
                     </svg>
                   ) : (
