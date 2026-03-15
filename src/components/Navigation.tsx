@@ -39,9 +39,9 @@ const Navigation = () => {
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between">
         <Link to="/" className="relative z-10 group">
-          <h1 className="font-display font-bold text-2xl md:text-3xl text-white tracking-widest uppercase flex items-center gap-2">
+          <h1 className="font-display font-bold text-xl md:text-3xl text-white tracking-widest uppercase flex items-baseline gap-2">
             Dr. Heavenly
-            <span className="text-gold font-sans text-sm tracking-[0.3em] opacity-80 mt-1 hidden md:block">For Congress</span>
+            <span className="text-gold font-sans text-[10px] md:text-sm tracking-[0.3em] opacity-80 mt-1">For Congress</span>
           </h1>
         </Link>
 
