@@ -52,7 +52,7 @@ const HeroSection = () => {
 
         {/* TOP: Tag + Heading — sits just below nav on mobile */}
         <motion.div
-          className="max-w-5xl mx-auto text-center flex flex-col items-center w-full pt-20 md:hidden"
+          className="max-w-5xl mx-auto text-center flex flex-col items-center w-full pt-28 md:hidden"
           style={{ y: textY, willChange: "transform" }}
         >
           <motion.div
