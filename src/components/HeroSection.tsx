@@ -103,7 +103,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 + words.length * 0.14, ease: [0.16, 1, 0.3, 1] }}
           >
-            <a href="/#voter-info" className="btn-navy w-full text-center">VOTE NOW</a>
+            <a href={`${import.meta.env.BASE_URL}#voter-info`} className="btn-navy w-full text-center">VOTE NOW</a>
             <a href={content.urls.donate} target="_blank" rel="noopener noreferrer" className="btn-crimson w-full text-center">
               {content.home.hero.buttons.contribute}
             </a>
@@ -157,7 +157,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 + words.length * 0.14, ease: [0.16, 1, 0.3, 1] }}
           >
-            <a href="/#voter-info" className="btn-navy text-center">VOTE NOW</a>
+            <a href={`${import.meta.env.BASE_URL}#voter-info`} className="btn-navy text-center">VOTE NOW</a>
             <a href={content.urls.donate} target="_blank" rel="noopener noreferrer" className="btn-crimson text-center">
               {content.home.hero.buttons.contribute}
             </a>

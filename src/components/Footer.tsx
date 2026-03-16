@@ -16,7 +16,7 @@ const Footer = () => {
             </p>
             <div className="flex flex-col gap-8">
               <div className="flex flex-wrap gap-4 items-center">
-                <a href="/#voter-info" className="btn-gold py-3 px-6 text-xs">VOTE NOW</a>
+                <a href={`${import.meta.env.BASE_URL}#voter-info`} className="btn-gold py-3 px-6 text-xs">VOTE NOW</a>
                 <a href={content.urls.donate} className="btn-crimson py-3 px-6 text-xs">Donate</a>
                 <a href={content.urls.volunteer} className="btn-outline border-white/20 text-white hover:border-gold hover:text-gold py-3 px-6 text-xs">Volunteer</a>
               </div>
