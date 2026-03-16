@@ -132,23 +132,35 @@ const Navigation = () => {
           {/* Mobile Links */}
           <nav className="flex flex-col gap-6 mb-10 items-center w-full relative z-10">
             {[
-              { name: 'Platform', href: content.urls.platform, show: true },
-              { name: 'About', href: content.urls.about, show: true },
-              { name: 'Store', href: content.urls.shop, show: true },
-            ].filter(item => item.show).map((item, i) => (
+              { name: 'Platform', href: content.urls.platform, external: false },
+              { name: 'About', href: content.urls.about, external: false },
+              { name: 'Store', href: content.urls.shop, external: true },
+            ].filter(item => item).map((item, i) => (
               <motion.div 
                 key={item.name} 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
               >
-                <Link
-                  to={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="font-display text-4xl text-white hover:text-gold transition-colors block text-center uppercase tracking-wider drop-shadow-lg"
-                >
-                  {item.name}
-                </Link>
+                {item.external ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="font-display text-4xl text-white hover:text-gold transition-colors block text-center uppercase tracking-wider drop-shadow-lg"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    to={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="font-display text-4xl text-white hover:text-gold transition-colors block text-center uppercase tracking-wider drop-shadow-lg"
+                  >
+                    {item.name}
+                  </Link>
+                )}
               </motion.div>
             ))}
           </nav>
@@ -156,7 +168,7 @@ const Navigation = () => {
           <div className="mt-auto flex flex-col gap-6 items-center relative z-10">
             <div className="flex flex-col w-full gap-4 sm:flex-row justify-center max-w-sm mx-auto">
               <a
-                href="/#voter-info"
+                href={`${import.meta.env.BASE_URL}#voter-info`}
                 className="btn-outline border-white/70 text-white hover:bg-white hover:text-navy w-full text-center py-4 backdrop-blur-sm"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -164,6 +176,8 @@ const Navigation = () => {
               </a>
               <a
                 href={content.urls.donate}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-crimson w-full text-center py-4"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
