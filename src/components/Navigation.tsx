@@ -12,7 +12,7 @@ const Navigation = () => {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 50);
+    setIsScrolled(latest > 10);
   });
 
   // Prevent scrolling when menu is open
@@ -30,10 +30,10 @@ const Navigation = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,padding,box-shadow] duration-500 border-b ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,padding,box-shadow] duration-300 border-b ${
         isScrolled 
           ? "bg-navy/95 backdrop-blur-lg border-white/10 shadow-lg py-4" 
-          : "bg-transparent border-transparent py-6 shadow-none"
+          : "bg-transparent backdrop-blur-sm border-transparent py-5 shadow-none"
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between">
