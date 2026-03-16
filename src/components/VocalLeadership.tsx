@@ -7,17 +7,23 @@ import SocialLinks from "@/components/SocialLinks";
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggeredChildren: 0.1, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 28 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] },
   },
+};
+
+// Per-word variant (much cheaper than per-character)
+const wordVariants: Variants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.25 } },
 };
 
 const VocalLeadership = () => {
@@ -32,59 +38,53 @@ const VocalLeadership = () => {
            variants={containerVariants}
            initial="hidden"
            whileInView="visible"
-           viewport={{ once: true, margin: "-10%" }}
+           viewport={{ once: true, margin: "150px 0px" }}
            className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center"
         >
           {/* Image Column */}
           <motion.div variants={itemVariants} className="relative w-full max-w-[500px] mx-auto lg:max-w-none aspect-[4/5] lg:aspect-auto lg:h-[700px] xl:h-[800px]">
             {/* High-end Glow */}
-            <div className="absolute -inset-6 bg-gradient-to-tr from-gold/30 via-crimson/20 to-navy/10 blur-3xl rounded-[3rem] opacity-70 mix-blend-multiply transition-opacity duration-1000 ease-in-out" />
+            <div className="absolute -inset-6 bg-gradient-to-tr from-gold/30 via-crimson/20 to-navy/10 blur-3xl rounded-[3rem] opacity-70 mix-blend-multiply" />
             
             {/* Image Container */}
             <motion.div 
               className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-white/50 z-10"
-              animate={{ y: [0, -15, 0], scale: [1, 1.02, 1] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+              style={{ willChange: "transform" }}
             >
               <img 
                 src={drHeavImage} 
                 alt="Dr. Heavenly Kimes" 
-                className="w-full h-full object-cover object-[center_top] contrast-[1.15] saturate-[1.1] brightness-[1.05]" 
+                className="w-full h-full object-cover object-[center_top] contrast-[1.15] saturate-[1.1] brightness-[1.05]"
+                loading="lazy"
+                decoding="async"
               />
               {/* Gloss/Shadow overlay */}
               <div className="absolute inset-0 bg-gradient-to-tr from-navy/30 via-transparent to-transparent pointer-events-none shadow-[inset_0_-20px_40px_rgba(0,0,0,0.4)]" />
             </motion.div>
             
-            {/* Decorative subtle pulse */}
+            {/* Decorative pulse */}
             <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-gold/10 rounded-full blur-2xl z-0 animate-pulse" />
           </motion.div>
 
           {/* Text Column */}
           <div className="flex flex-col justify-center">
+             {/* Per-word heading animation (much cheaper than per-character) */}
              <motion.h2
                initial="hidden"
                whileInView="visible"
-               viewport={{ once: true }}
+               viewport={{ once: true, margin: "150px 0px" }}
                variants={{
                  hidden: {},
-                 visible: { transition: { staggerChildren: 0.03, delayChildren: 0.1 } }
+                 visible: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } }
                }}
                className="heading-display text-5xl md:text-6xl lg:text-7xl mb-12 leading-[1.1] text-center lg:text-left"
              >
                {content.home.vocal_leadership.heading.split(" ").map((word, wi) => (
-                 <span key={wi} className="inline-flex mr-[0.25em]">
-                   {word.split("").map((char, ci) => (
-                     <motion.span
-                       key={ci}
-                       variants={{
-                         hidden: { opacity: 0, y: 10 },
-                         visible: { opacity: 1, y: 0, transition: { duration: 0.2 } }
-                       }}
-                     >
-                       {char}
-                     </motion.span>
-                   ))}
-                 </span>
+                 <motion.span key={wi} variants={wordVariants} className="inline-block mr-[0.25em]">
+                   {word}
+                 </motion.span>
                ))}
              </motion.h2>
 

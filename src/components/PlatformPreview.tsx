@@ -16,7 +16,7 @@ const PlatformPreview = () => {
             className="relative flex flex-col justify-center"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
+            viewport={{ once: true, margin: "150px 0px" }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="flex items-center gap-4 mb-8">
@@ -34,7 +34,7 @@ const PlatformPreview = () => {
                 scale: [0.6, 1.08, 0.96, 1.03, 1.0],
                 rotate: [0, -1.5, 1.5, -0.75, 0],
               }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, margin: "150px 0px" }}
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
             >
               {content.home.platform_preview.heading}
@@ -79,7 +79,7 @@ const PlatformPreview = () => {
             className="relative flex items-center justify-center w-full"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
+            viewport={{ once: true, margin: "150px 0px" }}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Dynamic Map Presentation */}
@@ -91,12 +91,15 @@ const PlatformPreview = () => {
               <motion.div 
                 className="relative z-10 w-full h-full flex items-center justify-center drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                 animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                style={{ willChange: "transform" }}
               >
                 <img 
                   src={ga13Map} 
                   alt="Georgia's 13th Congressional District Map" 
-                  className="w-full h-full object-contain rounded-2xl filter drop-shadow-[0_0_15px_rgba(255,215,0,0.2)] transition-transform duration-1000 hover:scale-[1.05]" 
+                  className="w-full h-full object-contain rounded-2xl filter drop-shadow-[0_0_15px_rgba(255,215,0,0.2)] transition-transform duration-1000 hover:scale-[1.05]"
+                  loading="lazy"
+                  decoding="async" 
                 />
               </motion.div>
 

@@ -1,16 +1,24 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import heroImage from "../assets/hero-family.webp";
 import content from "@/data/content.json";
 
-const isMobile = () => typeof window !== "undefined" && window.innerWidth < 768;
-
 const HeroSection = () => {
   const ref = useRef<HTMLElement>(null);
+  const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check, { passive: true });
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
+  // Parallax — desktop only (mobile skips for performance)
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", mobile ? "0%" : "15%"]);
+  const textY  = useTransform(scrollYProgress, [0, 1], ["0%", mobile ? "0%" : "10%"]);
 
   const words = content.home.hero.heading.split(". ");
 
@@ -19,14 +27,16 @@ const HeroSection = () => {
       {/* Background Image */}
       <motion.div
         className="absolute inset-0 z-0 origin-center"
-        style={{ y: imageY }}
-        animate={{ scale: isMobile() ? [1.0, 0.95] : [1.05, 1.15] }}
-        transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+        style={{ y: imageY, willChange: "transform" }}
+        animate={{ scale: mobile ? [1.0, 0.97] : [1.05, 1.13] }}
+        transition={{ duration: 22, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
       >
         <img
           src={heroImage}
           alt="Dr. Heavenly Kimes and Family"
           className="object-cover w-full h-full object-[62%_center] md:object-center opacity-95 contrast-105"
+          fetchPriority="high"
+          decoding="async"
         />
       </motion.div>
 
@@ -43,13 +53,13 @@ const HeroSection = () => {
         {/* TOP: Tag + Heading — sits just below nav on mobile */}
         <motion.div
           className="max-w-5xl mx-auto text-center flex flex-col items-center w-full pt-20 md:hidden"
-          style={{ y: textY }}
+          style={{ y: textY, willChange: "transform" }}
         >
           <motion.div
             className="flex flex-col items-center gap-3 mb-4"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="font-sans font-bold tracking-[0.4em] uppercase text-gold text-xs drop-shadow-md">
               Candidate for Georgia's 13th District
@@ -57,14 +67,15 @@ const HeroSection = () => {
             <div className="h-[1px] w-20 bg-gold/70 shadow-[0_0_12px_rgba(255,200,50,0.5)]" />
           </motion.div>
 
+          {/* Words: opacity + y only (no blur — huge perf win) */}
           <h1 className="font-display text-4xl leading-[1.15] text-white font-medium mb-0 flex flex-wrap justify-center gap-x-5 gap-y-3">
             {words.map((word, i) => (
               <motion.span
                 key={i}
                 className="block whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/75 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]"
-                initial={{ opacity: 0, y: 50, scale: 0.88, filter: "blur(10px)" }}
-                animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                transition={{ duration: 0.8, delay: 0.45 + i * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, y: 36 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.65, delay: 0.35 + i * 0.15, ease: [0.16, 1, 0.3, 1] }}
               >
                 {word.replace(/\.$/, '')}
                 <span className="text-gold ml-1">.</span>
@@ -73,24 +84,24 @@ const HeroSection = () => {
           </h1>
         </motion.div>
 
-        {/* BOTTOM on mobile: sub-text + buttons (mt-auto pushes to bottom) */}
+        {/* BOTTOM on mobile: sub-text + buttons */}
         <motion.div
           className="max-w-5xl mx-auto text-center flex flex-col items-center w-full mt-auto mb-8 md:hidden px-4"
-          style={{ y: textY }}
+          style={{ y: textY, willChange: "transform" }}
         >
           <motion.p
             className="font-sans text-base text-white/85 max-w-2xl mx-auto font-light leading-relaxed mb-10 drop-shadow-md"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.45 + words.length * 0.18, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 0.35 + words.length * 0.14, ease: [0.16, 1, 0.3, 1] }}
           >
             {content.home.hero.sub_heading}
           </motion.p>
           <motion.div
             className="flex flex-col w-full gap-4"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.65 + words.length * 0.18, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 0.5 + words.length * 0.14, ease: [0.16, 1, 0.3, 1] }}
           >
             <a href="/#voter-info" className="btn-navy w-full text-center">VOTE NOW</a>
             <a href={content.urls.donate} target="_blank" rel="noopener noreferrer" className="btn-crimson w-full text-center">
@@ -102,13 +113,13 @@ const HeroSection = () => {
         {/* DESKTOP: all content bottom-anchored */}
         <motion.div
           className="max-w-5xl mx-auto text-center flex-col items-center w-full mt-auto mb-20 hidden md:flex"
-          style={{ y: textY }}
+          style={{ y: textY, willChange: "transform" }}
         >
           <motion.div
             className="flex flex-col items-center gap-3 mb-8"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="font-sans font-bold tracking-[0.4em] uppercase text-gold text-sm drop-shadow-md">
               Candidate for Georgia's 13th District
@@ -121,9 +132,9 @@ const HeroSection = () => {
               <motion.span
                 key={i}
                 className="block whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/75 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]"
-                initial={{ opacity: 0, y: 50, scale: 0.88, filter: "blur(10px)" }}
-                animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                transition={{ duration: 0.8, delay: 0.45 + i * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, y: 36 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.65, delay: 0.35 + i * 0.15, ease: [0.16, 1, 0.3, 1] }}
               >
                 {word.replace(/\.$/, '')}
                 <span className="text-gold ml-1">.</span>
@@ -133,18 +144,18 @@ const HeroSection = () => {
 
           <motion.p
             className="font-sans text-xl text-white/85 max-w-2xl mx-auto font-light leading-relaxed mb-10 drop-shadow-md"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.45 + words.length * 0.18, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 0.35 + words.length * 0.14, ease: [0.16, 1, 0.3, 1] }}
           >
             {content.home.hero.sub_heading}
           </motion.p>
 
           <motion.div
             className="flex flex-row flex-wrap justify-center items-center gap-6"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.65 + words.length * 0.18, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 0.5 + words.length * 0.14, ease: [0.16, 1, 0.3, 1] }}
           >
             <a href="/#voter-info" className="btn-navy text-center">VOTE NOW</a>
             <a href={content.urls.donate} target="_blank" rel="noopener noreferrer" className="btn-crimson text-center">
@@ -159,7 +170,7 @@ const HeroSection = () => {
         className="absolute bottom-12 left-12 z-20 hidden md:flex items-center gap-4"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 2.2, duration: 1 }}
+        transition={{ delay: 2.0, duration: 0.9 }}
       >
         <span className="text-white/50 text-[10px] font-sans font-bold tracking-[0.3em] uppercase rotate-[-90deg] origin-left translate-y-6">Scroll</span>
         <div className="w-[1px] h-24 bg-gradient-to-b from-gold via-gold/50 to-transparent" />
