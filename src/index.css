@@ -67,6 +67,18 @@
     @apply translate-x-full;
   }
 
+  /* Flag sweep on hover: USA red → white → navy, left to right */
+  .btn-navy {
+    background: linear-gradient(to right, #B22234 0%, #ffffff 42%, #1b2a4a 70%, #1b2a4a 100%);
+    background-size: 260% 100%;
+    background-position: 100% center;
+    transition: background-position 0.75s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s, transform 0.3s;
+  }
+  .btn-navy:hover {
+    background-position: 0% center;
+    color: #1b2a4a;
+  }
+
   .btn-crimson {
     @apply relative overflow-hidden bg-crimson text-white px-10 py-5 rounded-full font-sans font-bold tracking-[0.2em] uppercase text-sm transition-all duration-500 shadow-[0_10px_30px_rgba(200,20,40,0.3)] hover:shadow-[0_15px_40px_rgba(200,20,40,0.5)] hover:-translate-y-1 inline-flex items-center justify-center;
   }

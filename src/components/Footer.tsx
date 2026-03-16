@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import content from "@/data/content.json";
 import SocialLinks from "@/components/SocialLinks";
 
@@ -17,7 +16,7 @@ const Footer = () => {
             </p>
             <div className="flex flex-col gap-8">
               <div className="flex flex-wrap gap-4 items-center">
-                <Link to="/#voter-info" className="btn-navy py-3 px-6 text-xs bg-white text-navy hover:bg-gold hover:text-navy border-none">VOTE NOW</Link>
+                <a href="/#voter-info" className="btn-gold py-3 px-6 text-xs">VOTE NOW</a>
                 <a href={content.urls.donate} className="btn-crimson py-3 px-6 text-xs">Donate</a>
                 <a href={content.urls.volunteer} className="btn-outline border-white/20 text-white hover:border-gold hover:text-gold py-3 px-6 text-xs">Volunteer</a>
               </div>
