@@ -26,7 +26,7 @@ const HeroSection = () => {
         <img
           src={heroImage}
           alt="Dr. Heavenly Kimes and Family"
-          className="object-cover w-full h-full object-center opacity-95 contrast-105"
+          className="object-cover w-full h-full object-[62%_center] md:object-center opacity-95 contrast-105"
         />
       </motion.div>
 
