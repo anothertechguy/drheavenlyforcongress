@@ -57,13 +57,21 @@ const PlatformPreview = () => {
               </p>
             </div>
             
-            <div className="mt-14">
+            <div className="mt-14 flex flex-wrap gap-4 items-center">
               <Link 
                 to={content.urls.platform} 
                 className="btn-gold"
               >
                 {content.home.platform_preview.button}
               </Link>
+              <a
+                href="/drheavenlyforcongress/memorandum.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline border-white/30 text-white hover:border-gold hover:text-gold py-5 px-10"
+              >
+                Memorandum
+              </a>
             </div>
           </motion.div>
 
@@ -88,7 +96,7 @@ const PlatformPreview = () => {
                 <img 
                   src={ga13Map} 
                   alt="Georgia's 13th Congressional District Map" 
-                  className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(255,215,0,0.2)] transition-transform duration-1000 hover:scale-[1.05]" 
+                  className="w-full h-full object-contain rounded-2xl filter drop-shadow-[0_0_15px_rgba(255,215,0,0.2)] transition-transform duration-1000 hover:scale-[1.05]" 
                 />
               </motion.div>
 

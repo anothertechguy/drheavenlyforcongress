@@ -160,7 +160,15 @@ const Platform = () => {
                 Delivering Real Results.
               </h2>
               <p className="font-serif text-2xl text-navy/70 max-w-md leading-relaxed font-light mb-12">
-                Discover the key pillars of our campaign to bring health, wealth, and opportunity back to our communities.
+                Discover the key pillars of our campaign to bring health, wealth, and opportunity back to our communities.{" "}
+                <a
+                  href="/drheavenlyforcongress/memorandum.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-crimson font-semibold underline decoration-crimson/40 underline-offset-4 hover:decoration-crimson transition-all"
+                >
+                  See my memorandum here →
+                </a>
               </p>
               
               <motion.div 

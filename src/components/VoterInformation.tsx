@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { countyPaths } from "@/data/countyPaths";
 
 const counties = [
-  { name: "Rockdale", url: "https://rockdalecountyga.gov/board-of-elections", theme: "navy" },
-  { name: "Newton", url: "https://newtoncountyga.gov/elections", theme: "crimson" },
+  { name: "Rockdale", url: "https://www.rockdalecountyga.gov/board-of-elections-voter-registration/", theme: "navy" },
+  { name: "Newton", url: "https://www.newtoncountyga.gov/167/Board-of-Elections-Registration", theme: "crimson" },
   { name: "Clayton", url: "https://claytonelections.com", theme: "gold" },
   { name: "Gwinnett", url: "https://gwinnettcounty.com/elections", theme: "pattern" },
   { name: "DeKalb", url: "https://dekalbvotes.com", theme: "navy" },
-  { name: "Henry", url: "https://henrycountyga.gov/elections", theme: "crimson" },
+  { name: "Henry", url: "https://www.henrycountyga.gov/305/Elections-Voter-Registration", theme: "crimson" },
 ];
 
 // Helper to return specific styling per theme
@@ -54,34 +54,70 @@ const VoterInformation = () => {
       <div className="container max-w-6xl mx-auto px-6 relative z-10">
         
         {/* Header Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <div className="flex items-center justify-center gap-4 mb-6">
+        <div className="text-center mb-16">
+          {/* Tag line */}
+          <motion.div
+            className="flex items-center justify-center gap-4 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
             <div className="h-[1px] w-12 bg-crimson" />
             <span className="font-sans font-bold uppercase tracking-[0.3em] text-crimson text-xs">Voter Information</span>
             <div className="h-[1px] w-12 bg-crimson" />
+          </motion.div>
+
+          {/* Heading line 1 */}
+          <div className="overflow-hidden mb-1">
+            <motion.h2
+              className="heading-display text-4xl md:text-5xl lg:text-6xl text-navy"
+              initial={{ opacity: 0, y: 60, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Your Voice, Your Vote:
+            </motion.h2>
           </div>
-          <div className="flex flex-col items-center justify-center mb-6">
-            <h2 className="heading-display text-4xl md:text-5xl lg:text-6xl text-navy mb-4">
-              Your Voice, Your Vote:<br />
-              <span className="text-crimson">Election 2026</span>
-            </h2>
-            <div className="inline-block bg-navy/5 border border-navy/10 rounded-full px-6 py-2">
-              <span className="font-sans font-bold text-navy text-sm uppercase tracking-widest">
-                Primary Election: <span className="text-crimson">May 19, 2026</span>
-              </span>
-            </div>
+
+          {/* Heading line 2 — crimson, slight extra delay */}
+          <div className="overflow-hidden mb-6">
+            <motion.span
+              className="heading-display text-4xl md:text-5xl lg:text-6xl text-crimson block"
+              initial={{ opacity: 0, y: 60, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.85, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Election 2026
+            </motion.span>
           </div>
-          <p className="font-serif text-lg md:text-xl text-navy/70 max-w-2xl mx-auto leading-relaxed">
+
+          {/* Date badge */}
+          <motion.div
+            className="inline-block bg-navy/5 border border-navy/10 rounded-full px-6 py-2 mb-6"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="font-sans font-bold text-navy text-sm uppercase tracking-widest">
+              Primary Election: <span className="text-crimson">May 19, 2026</span>
+            </span>
+          </motion.div>
+
+          <motion.p
+            className="font-serif text-lg md:text-xl text-navy/70 max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.52, ease: [0.16, 1, 0.3, 1] }}
+          >
             <strong className="text-navy font-semibold">Early voting starts on April 27 and runs through May 15.</strong><br/>
             Find your official county election portal below to register, request an absentee ballot, or find your early voting location.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* Highlight Callout Box */}
         <motion.div 
