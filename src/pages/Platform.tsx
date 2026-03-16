@@ -46,11 +46,13 @@ const Platform = () => {
       {/* Cinematic Hero Section */}
       <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[85vh] flex items-center bg-navy overflow-hidden pt-16 md:pt-32">
         {/* Parallax Image Background */}
-        <motion.div className="absolute inset-0 z-0" style={{ y: imageY }}>
+        <motion.div className="absolute inset-0 z-0" style={{ y: imageY, willChange: "transform" }}>
           <img
             src={heroImage}
             alt="Dr. Heavenly helping patient"
             className="w-full h-full object-cover object-[20%_30%] md:object-[30%_30%] lg:object-[center_30%] opacity-90 contrast-110 saturate-110"
+            fetchPriority="high"
+            decoding="async"
           />
         </motion.div>
         
