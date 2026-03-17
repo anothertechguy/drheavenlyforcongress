@@ -70,7 +70,7 @@ const PlatformPreview = () => {
                 rel="noopener noreferrer"
                 className="btn-outline border-white/30 text-white hover:border-gold hover:text-gold py-5 px-10"
               >
-                Memorandum
+                My Policies
               </a>
             </div>
           </motion.div>

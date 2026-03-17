@@ -157,7 +157,7 @@ const Platform = () => {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start">
             
             {/* Left Sticky Title Area */}
-            <div className="lg:col-span-5 lg:sticky lg:top-40 hidden lg:block">
+            <div className="lg:col-span-5 lg:sticky lg:top-40 mb-12 lg:mb-0">
               <h2 className="heading-display text-5xl md:text-6xl text-navy mb-8 leading-[1.1]">
                 Delivering Real Results.
               </h2>
@@ -169,7 +169,7 @@ const Platform = () => {
                   rel="noopener noreferrer"
                   className="text-crimson font-semibold underline decoration-crimson/40 underline-offset-4 hover:decoration-crimson transition-all"
                 >
-                  See my memorandum here →
+                  See My Policies here →
                 </a>
               </p>
               
