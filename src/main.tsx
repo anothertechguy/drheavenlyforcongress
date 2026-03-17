@@ -11,7 +11,7 @@ const Platform = lazy(() => import('./pages/Platform'))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/drheavenlyforcongress/">
+    <BrowserRouter>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
