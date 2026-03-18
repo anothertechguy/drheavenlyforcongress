@@ -25,9 +25,14 @@ const Home = () => {
           <h2 className="heading-display text-5xl md:text-6xl text-navy mb-12">
             {content.home.join.heading}
           </h2>
-          <a href={content.urls.volunteer} target="_blank" rel="noopener noreferrer" className="btn-crimson inline-block">
-            {content.home.join.button}
-          </a>
+          <div className="flex justify-center gap-4 flex-wrap">
+            <a href={content.urls.volunteer} target="_blank" rel="noopener noreferrer" className="btn-crimson inline-block">
+              {content.home.join.button}
+            </a>
+            <a href="/events" className="btn-outline border-navy text-navy hover:bg-navy hover:text-white inline-block">
+              EVENTS
+            </a>
+          </div>
         </div>
       </section>
 

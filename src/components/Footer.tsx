@@ -39,6 +39,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-sans text-white/40 uppercase tracking-widest">
           <p>&copy; {new Date().getFullYear()} Dr. Heavenly Kimes. All Rights Reserved.</p>
           <div className="flex gap-6">
+            <a href="/events" className="hover:text-gold transition-colors">Events</a>
             <a href="#" className="hover:text-gold transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-gold transition-colors">Terms of Service</a>
           </div>

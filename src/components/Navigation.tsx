@@ -48,6 +48,7 @@ const Navigation = () => {
           {[
             { name: 'Platform', href: content.urls.platform, show: true },
             { name: 'About', href: content.urls.about, show: true },
+            { name: 'Events', href: '/events', show: true },
           ].filter(item => item.show).map((item) => (
             <Link 
               key={item.name} 
@@ -134,6 +135,7 @@ const Navigation = () => {
             {[
               { name: 'Platform', href: content.urls.platform, external: false },
               { name: 'About', href: content.urls.about, external: false },
+              { name: 'Events', href: '/events', external: false },
               { name: 'Store', href: content.urls.shop, external: true },
             ].filter(item => item).map((item, i) => (
               <motion.div 
