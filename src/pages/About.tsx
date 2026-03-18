@@ -406,7 +406,7 @@ const About = () => {
                 This was my second visit and I have never felt so safe and comfortable like this before. Her knowledge and care is undeniably 10 of 10. I would and am going to refer her to everyone because she's definitely worth it.
               </p>
               <div className="flex items-center gap-4 border-t border-navy/5 pt-6 mt-auto">
-                <img src="https://drheavenlyforgeorgia.com/wp-content/uploads/2014/10/imageedit_39_5135534893.jpg" alt="Jason T." className="w-12 h-12 rounded-full object-cover" />
+                <img src="https://ui-avatars.com/api/?name=Jason+T&background=0A1128&color=FFD700" alt="Jason T." className="w-12 h-12 rounded-full object-cover" />
                 <div>
                   <h4 className="font-display text-xl text-navy">Jason T.</h4>
                   <p className="font-sans text-xs font-bold tracking-widest text-gold uppercase">Patient</p>
@@ -426,7 +426,7 @@ const About = () => {
                 You will not be disappointed when you make your appointment with Smiles by Dr. Heavenly. I was nervous coming in, but everyone was kind, patient, and super helpful. The staff also goes the extra mile to find different resources to help you finance your services if you are unable to pay outright. 10/10 experience!!!
               </p>
               <div className="flex items-center gap-4 border-t border-navy/5 pt-6 mt-auto">
-                <img src="https://drheavenlyforgeorgia.com/wp-content/uploads/2025/11/Gemini_Generated_Image_3raqa73raqa73raq-150x150.png" alt="Ruby L." className="w-12 h-12 rounded-full object-cover" />
+                <img src="https://ui-avatars.com/api/?name=Ruby+L&background=0A1128&color=FFD700" alt="Ruby L." className="w-12 h-12 rounded-full object-cover" />
                 <div>
                   <h4 className="font-display text-xl text-navy">Ruby L.</h4>
                   <p className="font-sans text-xs font-bold tracking-widest text-gold uppercase">Patient</p>
@@ -446,7 +446,7 @@ const About = () => {
                 This was my second visit and I have never felt so safe and comfortable like this before. Her knowledge and care is undeniably 10 of 10. I would and am going to refer her to everyone because she's definitely worth it.
               </p>
               <div className="flex items-center gap-4 border-t border-navy/5 pt-6 mt-auto">
-                <img src="https://drheavenlyforgeorgia.com/wp-content/uploads/2025/11/Gemini_Generated_Image_3raqa73raqa73raq-150x150.png" alt="Meisha R." className="w-12 h-12 rounded-full object-cover" />
+                <img src="https://ui-avatars.com/api/?name=Meisha+R&background=0A1128&color=FFD700" alt="Meisha R." className="w-12 h-12 rounded-full object-cover" />
                 <div>
                   <h4 className="font-display text-xl text-navy">Meisha R.</h4>
                   <p className="font-sans text-xs font-bold tracking-widest text-gold uppercase">Patient</p>
