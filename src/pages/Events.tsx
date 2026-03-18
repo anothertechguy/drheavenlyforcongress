@@ -32,7 +32,7 @@ const events = [
     id: 3,
     title: "Atlanta Caribbean Carnival",
     date: "May 23, 2026",
-    time: "TBD",
+    time: "May 23, 2026",
     location: "Rodney Cook Sr. Park at Vine City",
     description: "The Official Downtown Atlanta Caribbean Carnival. Come celebrate culture, music, and community spirit with us. Looking forward to seeing everyone there!",
     image: flyer3,
@@ -181,7 +181,7 @@ const Events = () => {
                         className="btn-outline border-navy text-navy hover:bg-navy hover:text-white inline-flex items-center gap-3 px-8 py-4 text-base"
                       >
                         <Calendar className="w-5 h-5" />
-                        <span>RSVP / Volunteer</span>
+                        <span>Volunteer</span>
                       </a>
                     )}
                   </motion.div>
