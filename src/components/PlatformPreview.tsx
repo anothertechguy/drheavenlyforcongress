@@ -65,7 +65,7 @@ const PlatformPreview = () => {
                 {content.home.platform_preview.button}
               </Link>
               <a
-                href="/drheavenlyforcongress/memorandum.pdf"
+                href="/memorandum.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline border-white/30 text-white hover:border-gold hover:text-gold py-5 px-10"
