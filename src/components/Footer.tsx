@@ -1,5 +1,6 @@
 import content from "@/data/content.json";
 import SocialLinks from "@/components/SocialLinks";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
@@ -45,18 +46,25 @@ const Footer = () => {
               <a href="#" className="hover:text-gold transition-colors">Terms of Service</a>
             </div>
           </div>
-          <div className="text-center text-[10px] text-white/20 tracking-[0.3em] font-medium relative z-20">
-            Powered by{" "}
+          <div className="text-center text-xs text-white/40 tracking-[0.2em] font-bold relative z-20 mt-4 flex items-center justify-center flex-wrap gap-1">
+            <span>Made with <span className="text-crimson text-sm relative top-[1px]">❤️</span> by</span>
             <a 
               href="https://easycheapwebsites.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="hover:text-white/50 transition-colors"
+              className="hover:text-gold transition-colors ml-1"
               title="Custom Web Design by Elite Custom Websites"
               aria-label="Elite Custom Websites - Custom Web Design"
             >
               ECW - Elite Custom Websites
             </a>
+            <motion.span 
+              animate={{ opacity: [1, 0, 1] }} 
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              className="inline-block text-gold font-mono font-bold ml-1"
+            >
+              _
+            </motion.span>
           </div>
         </div>
       </div>
