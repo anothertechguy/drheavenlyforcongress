@@ -36,12 +36,27 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-sans text-white/40 uppercase tracking-widest">
-          <p>&copy; {new Date().getFullYear()} Dr. Heavenly Kimes. All Rights Reserved.</p>
-          <div className="flex gap-6">
-            <a href="/events" className="hover:text-gold transition-colors">Events</a>
-            <a href="#" className="hover:text-gold transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-gold transition-colors">Terms of Service</a>
+        <div className="pt-8 border-t border-white/10 flex flex-col gap-6 text-xs font-sans text-white/40 uppercase tracking-widest">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>&copy; {new Date().getFullYear()} Dr. Heavenly Kimes. All Rights Reserved.</p>
+            <div className="flex gap-6 relative z-20">
+              <a href="/events" className="hover:text-gold transition-colors">Events</a>
+              <a href="#" className="hover:text-gold transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-gold transition-colors">Terms of Service</a>
+            </div>
+          </div>
+          <div className="text-center text-[10px] text-white/20 tracking-[0.3em] font-medium relative z-20">
+            Powered by{" "}
+            <a 
+              href="https://easycheapwebsites.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-white/50 transition-colors"
+              title="Custom Web Design by Elite Custom Websites"
+              aria-label="Elite Custom Websites - Custom Web Design"
+            >
+              ECW - Elite Custom Websites
+            </a>
           </div>
         </div>
       </div>
