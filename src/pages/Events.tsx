@@ -7,6 +7,9 @@ import { Calendar, Clock, MapPin, Video } from "lucide-react";
 import flyer1 from "../assets/town hall mar 19.jpg";
 import flyer2 from "../assets/apr 18.jpeg";
 import flyer3 from "../assets/may 23.jpeg";
+import flyer4 from "../assets/mar 21.jpeg";
+import flyer5 from "../assets/mar 21 (another).jpeg";
+import flyer6 from "../assets/mar 29.jpeg";
 
 const events = [
   {
@@ -18,6 +21,33 @@ const events = [
     description: "Come share your concerns, ideas, and visions for a stronger community with Democratic Candidate for Congress, Dr. Heavenly Kimes. Let's talk about the future of District 13 together.",
     image: flyer1,
     zoomLink: "https://us02web.zoom.us/j/82502383959?pwd=QxhRwtXW26g4sAB",
+  },
+  {
+    id: 4,
+    title: "Smiles By Dr. Heavenly Dental Relief Initiative Tour",
+    date: "March 21, 2026",
+    time: "10:00AM - 2:00PM",
+    location: "Southern Pearl Dentistry (Hampton, GA)",
+    description: "Dr. Latonya Gillespie-Johnson will be joining the tour! We're giving away free exams, x-rays, cleanings, and extractions to people in pain.",
+    image: flyer4,
+  },
+  {
+    id: 5,
+    title: "Meet the Candidates Forum",
+    date: "March 21, 2026",
+    time: "12:00PM (NOON)",
+    location: "Trotters Ridge Subdivision Clubhouse (Snellville, GA)",
+    description: "Join the Shiloh Rec Center (ShiRec) Board for an exciting opportunity to connect! Hear directly from all 7 Democratic candidates about their vision and plans for our community. Bring a friend and let's build a stronger community together!",
+    image: flyer5,
+  },
+  {
+    id: 6,
+    title: "Women in Business Expo and Symposium Brunch",
+    date: "March 29, 2026",
+    time: "11:30AM - 1:30PM",
+    location: "Sonesta Gwinnett Place Atlanta",
+    description: "Celebrating Women's History Month! Join us for an empowering brunch where Dr. Heavenly Kimes will be the Keynote Speaker. Sponsored by 'Say Yes to Profits'.",
+    image: flyer6,
   },
   {
     id: 2,
