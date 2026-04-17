@@ -32,10 +32,11 @@ const Navigation = () => {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,padding,box-shadow] duration-300 border-b ${
         isScrolled 
-          ? "bg-navy/95 backdrop-blur-lg border-white/10 shadow-lg py-4" 
-          : "bg-transparent backdrop-blur-sm border-transparent py-5 shadow-none"
+          ? "bg-navy/95 backdrop-blur-lg border-white/10 shadow-lg py-3" 
+          : "bg-transparent backdrop-blur-sm border-transparent py-4 shadow-none"
       }`}
     >
+      {/* Main Row */}
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between">
         <Link to="/" className="relative z-10 group">
           <h1 className="font-display font-bold text-xl md:text-3xl text-white tracking-widest uppercase flex items-baseline gap-2">
@@ -46,10 +47,11 @@ const Navigation = () => {
 
         <nav className="hidden lg:flex items-center gap-10">
           {[
-            { name: 'Platform', href: content.urls.platform, show: true },
-            { name: 'About', href: content.urls.about, show: true },
-            { name: 'Events', href: '/events', show: true },
-          ].filter(item => item.show).map((item) => (
+            { name: 'Platform', href: content.urls.platform },
+            { name: 'About', href: content.urls.about },
+            { name: 'Events', href: '/events' },
+            { name: 'Endorsements', href: '/endorsements' },
+          ].map((item) => (
             <Link 
               key={item.name} 
               to={item.href}
@@ -61,10 +63,6 @@ const Navigation = () => {
         </nav>
 
         <div className="flex items-center gap-4 lg:gap-6">
-          <SocialLinks 
-            className="hidden xl:flex" 
-            iconClassName="w-8 h-8 bg-transparent border-white/20 hover:bg-white/10 text-white" 
-          />
           <div className="hidden sm:flex items-center gap-3">
             <a
               href="/#voter-info"
@@ -92,6 +90,25 @@ const Navigation = () => {
           </button>
         </div>
       </div>
+
+      {/* Social Icons Row — collapses on scroll */}
+      <motion.div
+        initial={false}
+        animate={{ 
+          height: isScrolled ? 0 : "auto", 
+          opacity: isScrolled ? 0 : 1,
+          marginTop: isScrolled ? 0 : 6 
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="overflow-hidden hidden xl:block"
+      >
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex justify-end">
+          <SocialLinks 
+            className="flex" 
+            iconClassName="w-7 h-7 bg-transparent border-white/20 hover:bg-white/10 text-white" 
+          />
+        </div>
+      </motion.div>
     </motion.header>
 
     {/* Mobile Navigation Overlay */}
@@ -136,6 +153,7 @@ const Navigation = () => {
               { name: 'Platform', href: content.urls.platform, external: false },
               { name: 'About', href: content.urls.about, external: false },
               { name: 'Events', href: '/events', external: false },
+              { name: 'Endorsements', href: '/endorsements', external: false },
               { name: 'Store', href: content.urls.shop, external: true },
             ].filter(item => item).map((item, i) => (
               <motion.div 

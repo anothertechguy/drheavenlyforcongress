@@ -9,6 +9,7 @@ import './index.css'
 const About = lazy(() => import('./pages/About'))
 const Platform = lazy(() => import('./pages/Platform'))
 const Events = lazy(() => import('./pages/Events'))
+const Endorsements = lazy(() => import('./pages/Endorsements'))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/about" element={<Suspense><About /></Suspense>} />
         <Route path="/platform" element={<Suspense><Platform /></Suspense>} />
         <Route path="/events" element={<Suspense><Events /></Suspense>} />
+        <Route path="/endorsements" element={<Suspense><Endorsements /></Suspense>} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
