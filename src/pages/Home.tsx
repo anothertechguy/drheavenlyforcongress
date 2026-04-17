@@ -4,6 +4,7 @@ import AnimatedVoiceText from "@/components/AnimatedVoiceText";
 import VocalLeadership from "@/components/VocalLeadership";
 import PlatformPreview from "@/components/PlatformPreview";
 import VoterInformation from "@/components/VoterInformation";
+import EndorsementsReel from "@/components/EndorsementsReel";
 import Footer from "@/components/Footer";
 
 import content from "@/data/content.json";
@@ -35,6 +36,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <EndorsementsReel />
 
       <Footer />
     </main>

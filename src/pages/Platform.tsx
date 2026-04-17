@@ -91,7 +91,7 @@ const Platform = () => {
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="font-serif text-lg sm:text-xl md:text-3xl text-white/90 max-w-2xl font-light leading-relaxed drop-shadow-xl"
             >
-              I am fighting for the issues that matter most to District 13 families. We're building a stronger future together.
+              I am fighting for the issues that matter most to District 13 families. We're building a <a href="/#endorsements" className="relative inline-block text-gold group whitespace-nowrap cursor-pointer">stronger future together<span className="absolute -bottom-1 left-0 w-full h-[1px] bg-gold/50 group-hover:bg-gold group-hover:h-[2px] group-hover:shadow-[0_0_10px_rgba(255,215,0,0.8)] transition-all duration-300"></span></a>.
             </motion.p>
           </div>
         </div>

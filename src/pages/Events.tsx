@@ -222,6 +222,15 @@ const Events = () => {
         </div>
       </section>
 
+      {/* Floating Mini-Pill for Endorsements */}
+      <a 
+        href="/#endorsements" 
+        className="fixed bottom-8 right-8 z-50 group flex items-center gap-2 bg-white/40 hover:bg-white/90 backdrop-blur-md border border-white/40 shadow-glass hover:shadow-glass-hover px-5 py-2.5 rounded-full transition-all duration-500 ease-out animate-pulse hover:animate-none"
+      >
+        <span className="w-2 h-2 rounded-full bg-gold shadow-[0_0_8px_rgba(255,215,0,0.6)] group-hover:scale-150 transition-transform duration-500" />
+        <span className="font-sans font-bold text-[10px] uppercase tracking-widest text-navy/70 group-hover:text-navy transition-colors">See Endorsements</span>
+      </a>
+
       <Footer />
     </main>
   );

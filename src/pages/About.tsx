@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import EndorsementsReel from "@/components/EndorsementsReel";
 import Footer from "@/components/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -276,7 +277,7 @@ const About = () => {
                 <div className="relative bg-white p-8 shadow-sm border border-navy/5 rounded-2xl">
                   <h3 className="font-sans font-bold tracking-[0.2em] uppercase text-navy text-xs mb-4">Objective</h3>
                   <p className="font-serif text-lg md:text-xl text-navy leading-relaxed">
-                    To earn the trust and the vote of the people of Georgia's 13th District to serve as their next Representative in the United States Congress, applying over two decades of experience in healthcare, small business leadership, and high-stakes public communication to deliver tangible results for our families.
+                    To earn the trust and the vote of the people of Georgia's 13th District to serve as their next Representative in the United States Congress, applying over two decades of experience in healthcare, small business leadership, and high-stakes public communication to deliver tangible results for <a href="#endorsements" className="relative inline-block text-crimson group font-medium cursor-pointer">our families<span className="absolute -bottom-0.5 left-0 w-full h-[1px] bg-crimson/40 group-hover:bg-crimson group-hover:h-[2px] transition-all duration-300"></span></a>.
                   </p>
                 </div>
               </div>
@@ -456,6 +457,8 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      <EndorsementsReel />
 
       <Footer />
     </main>
