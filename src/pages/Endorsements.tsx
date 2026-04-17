@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
-import EndorsementsReel from "@/components/EndorsementsReel";
+
 import Footer from "@/components/Footer";
 
 import endorsement1 from "../assets/endorsements/endorsement1.webp";
@@ -105,9 +105,6 @@ const Endorsements = () => {
           </div>
         </div>
       </section>
-
-      {/* Scrolling Reel at bottom too */}
-      <EndorsementsReel />
 
       <Footer />
     </main>
