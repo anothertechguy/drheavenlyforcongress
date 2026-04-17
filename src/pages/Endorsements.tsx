@@ -79,8 +79,8 @@ const Endorsements = () => {
             </p>
           </motion.div>
 
-          {/* Masonry Grid */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+          {/* Grid */}
+          <div className="flex flex-wrap justify-center gap-6">
             {endorsements.map((img, index) => (
               <motion.div
                 key={index}
@@ -88,7 +88,7 @@ const Endorsements = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.7, delay: (index % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="break-inside-avoid group"
+                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group"
               >
                 <div className="relative rounded-[2rem] overflow-hidden shadow-glass hover:shadow-glass-hover border border-navy/5 bg-white/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2">
                   {/* Subtle shine overlay on hover */}
