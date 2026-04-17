@@ -10,6 +10,9 @@ import flyer3 from "../assets/may 23.jpeg";
 import flyer4 from "../assets/mar 21.jpeg";
 import flyer5 from "../assets/mar 21 (another).jpeg";
 import flyer6 from "../assets/mar 29.jpeg";
+import flyer7 from "../assets/april 19 3rd flyer.jpeg";
+import flyer8 from "../assets/april 19 flyer.jpeg";
+import flyer9 from "../assets/april 19 second flyer.jpeg";
 
 const events = [
   {
@@ -62,6 +65,36 @@ const events = [
     location: "Independence Park",
     description: "Join us for a massive celebration of community! There will be amazing food, music, games, and fun for all. Bring the whole family to Independence Park as we connect with our neighbors.",
     image: flyer2,
+  },
+  {
+    id: 7,
+    title: "Brunch in Support of Dr. Heavenly for CD-13",
+    date: "April 19, 2026",
+    sortDate: new Date(2026, 3, 19, 13),
+    time: "1:00PM - 3:00PM",
+    location: "Address Provided Upon RSVP",
+    description: "Join community leaders Ninette Martin, Dr. Jing Jing Wong Harris, Dr. Nicolle Martin, Dr. Aja Pollard, Dr. Contessa Metcalfe, Onyema Farrey, Esq., and Dr. Lisa Jasper for an exclusive brunch in support of Dr. Heavenly Kimes for Congress. RSVP today!",
+    image: flyer7,
+  },
+  {
+    id: 8,
+    title: "Meet & Greet with Dr. Heavenly Kimes",
+    date: "April 19, 2026",
+    sortDate: new Date(2026, 3, 19, 18),
+    time: "6:00PM - 8:00PM",
+    location: "Love You Brunches — 1805 Parker Rd SE, Conyers, GA 30094",
+    description: "East Metro Business Network presents a Meet & Greet with Dr. Heavenly Kimes, candidate for Congress Georgia's District 13. Don't miss this opportunity to connect and hear her vision for our community!",
+    image: flyer8,
+  },
+  {
+    id: 9,
+    title: "EMBN Meet & Greet with Dr. Heavenly",
+    date: "April 19, 2026",
+    sortDate: new Date(2026, 3, 19, 18, 1),
+    time: "6:00PM - 8:00PM",
+    location: "Love You Brunches — 1805 Parker Rd SE, Conyers, GA 30094",
+    description: "\"You need to be in the room!\" East Metro Business Network presents Dr. Heavenly Kimes for Congress at Love You Brunches. Come out for an evening of conversation, community, and connection.",
+    image: flyer9,
   },
   {
     id: 3,
