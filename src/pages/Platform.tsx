@@ -37,6 +37,11 @@ const platformItems = [
     body: "The future of our economy demands both innovation and accountability. I will fight for a clear regulatory framework for cryptocurrency and digital assets that protects consumers, supports American competitiveness, and invests in education so every family can participate in the digital future.",
     link: "/digital-economy",
   },
+  {
+    title: "Supporting Our Veterans",
+    body: "As the daughter of a veteran, this is personal. I will fight to restore VA staffing, modernize facilities, expand mental health services, support veteran-owned businesses, and ensure every veteran in Georgia receives the world-class care and benefits they've earned.",
+    link: "/veterans",
+  },
 ];
 
 const Platform = () => {

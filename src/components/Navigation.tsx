@@ -63,6 +63,12 @@ const Navigation = () => {
                 >
                   Digital Economy
                 </Link>
+                <Link
+                  to="/veterans"
+                  className="block font-sans text-xs font-bold tracking-[0.15em] text-white/70 hover:text-gold transition-colors uppercase py-1.5"
+                >
+                  Veterans
+                </Link>
               </div>
             </div>
           </div>
@@ -172,6 +178,7 @@ const Navigation = () => {
             {[
               { name: 'Platform', href: content.urls.platform, external: false },
               { name: 'Digital Economy', href: '/digital-economy', external: false },
+              { name: 'Veterans', href: '/veterans', external: false },
               { name: 'About', href: content.urls.about, external: false },
               { name: 'Events', href: '/events', external: false },
               { name: 'Endorsements', href: '/endorsements', external: false },
