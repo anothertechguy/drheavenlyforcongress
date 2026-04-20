@@ -10,6 +10,7 @@ const About = lazy(() => import('./pages/About'))
 const Platform = lazy(() => import('./pages/Platform'))
 const Events = lazy(() => import('./pages/Events'))
 const Endorsements = lazy(() => import('./pages/Endorsements'))
+const DigitalEconomy = lazy(() => import('./pages/DigitalEconomy'))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/platform" element={<Suspense><Platform /></Suspense>} />
         <Route path="/events" element={<Suspense><Events /></Suspense>} />
         <Route path="/endorsements" element={<Suspense><Endorsements /></Suspense>} />
+        <Route path="/digital-economy" element={<Suspense><DigitalEconomy /></Suspense>} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

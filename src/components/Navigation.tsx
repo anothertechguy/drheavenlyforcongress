@@ -46,8 +46,28 @@ const Navigation = () => {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-10">
+          {/* Platform Dropdown */}
+          <div className="relative group">
+            <Link 
+              to={content.urls.platform}
+              className="font-sans text-sm font-bold tracking-[0.2em] text-white/80 hover:text-gold transition-colors uppercase relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[1px] after:bg-gold after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left"
+            >
+              Platform
+            </Link>
+            {/* Dropdown */}
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+              <div className="bg-navy/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl px-5 py-3 whitespace-nowrap">
+                <Link
+                  to="/digital-economy"
+                  className="block font-sans text-xs font-bold tracking-[0.15em] text-white/70 hover:text-gold transition-colors uppercase py-1.5"
+                >
+                  Digital Economy
+                </Link>
+              </div>
+            </div>
+          </div>
+
           {[
-            { name: 'Platform', href: content.urls.platform },
             { name: 'About', href: content.urls.about },
             { name: 'Events', href: '/events' },
             { name: 'Endorsements', href: '/endorsements' },
@@ -151,6 +171,7 @@ const Navigation = () => {
           <nav className="flex flex-col gap-6 mb-10 items-center w-full relative z-10">
             {[
               { name: 'Platform', href: content.urls.platform, external: false },
+              { name: 'Digital Economy', href: '/digital-economy', external: false },
               { name: 'About', href: content.urls.about, external: false },
               { name: 'Events', href: '/events', external: false },
               { name: 'Endorsements', href: '/endorsements', external: false },

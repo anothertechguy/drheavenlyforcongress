@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import VoterInformation from "@/components/VoterInformation";
@@ -30,6 +31,11 @@ const platformItems = [
   {
     title: "Criminal Justice Reform",
     body: "A safe community and a fair justice system are the foundation of a thriving district. We need smart reforms that increase accountability and build trust between law enforcement and the communities they serve. I will be a voice for every family, fighting to protect our civil rights, secure our voting rights, and ensure justice is applied equally to all.",
+  },
+  {
+    title: "Digital Economy",
+    body: "The future of our economy demands both innovation and accountability. I will fight for a clear regulatory framework for cryptocurrency and digital assets that protects consumers, supports American competitiveness, and invests in education so every family can participate in the digital future.",
+    link: "/digital-economy",
   },
 ];
 
@@ -224,6 +230,14 @@ const Platform = () => {
                       <p className="font-serif text-lg md:text-xl text-navy/80 leading-[1.8] font-light relative z-10">
                         {issue.body}
                       </p>
+                      {issue.link && (
+                        <Link
+                          to={issue.link}
+                          className="inline-block mt-6 font-sans text-sm font-bold tracking-wider text-crimson hover:text-navy transition-colors relative z-10 uppercase"
+                        >
+                          Read full policy →
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </motion.div>
