@@ -6,6 +6,7 @@ import PlatformPreview from "@/components/PlatformPreview";
 import VoterInformation from "@/components/VoterInformation";
 import EndorsementsReel from "@/components/EndorsementsReel";
 import Footer from "@/components/Footer";
+import requestBallot from "../assets/requestballot.jpg";
 
 import content from "@/data/content.json";
 
@@ -34,6 +35,18 @@ const Home = () => {
               EVENTS
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Request Ballot Image */}
+      <section className="py-12 md:py-20 bg-pearl">
+        <div className="container max-w-4xl mx-auto px-6 flex justify-center">
+          <img 
+            src={requestBallot} 
+            alt="Request Your Absentee Ballot" 
+            className="w-full max-w-2xl rounded-[2rem] shadow-glass border border-navy/5"
+            loading="lazy"
+          />
         </div>
       </section>
 
