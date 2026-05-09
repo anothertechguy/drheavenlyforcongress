@@ -12,8 +12,12 @@ import endorsement10 from "../assets/endorsements/endorsement10.webp";
 import endorsement11 from "../assets/endorsements/endorsement11.jpeg";
 import endorsement12 from "../assets/endorsements/endorsement12.jpeg";
 import endorsement13 from "../assets/endorsements/endorsement13.jpeg";
+import endorsement14 from "../assets/endorsements/endorsement14.jpg";
+import endorsement15 from "../assets/endorsements/endorsement15.jpg";
+import endorsement16 from "../assets/endorsements/endorsement16.jpg";
 
 const endorsements = [
+  endorsement14, endorsement15, endorsement16,
   endorsement11, endorsement12, endorsement13,
   endorsement1, endorsement2, endorsement3, endorsement4, endorsement5,
   endorsement6, endorsement7, endorsement8, endorsement9, endorsement10
